@@ -1,0 +1,37 @@
+
+@import './variables/index.scss';
+@import './modifiers/index.scss';
+@import './fragments/index.scss';
+
+@include background-clip-classes;
+@include background-color-classes;
+@include background-position-classes;
+@include background-repeat-classes;
+@include background-size-classes;
+@include border-color-classes;
+@include border-radius-classes;
+@include border-style-classes;
+@include border-width-classes;
+@include box-classes;
+@include clear-classes;
+@include display-classes;
+@include flex-direction-classes;
+@include float-classes;
+@include font-family-classes;
+@include font-weight-classes;
+@include height-classes;
+@include margin-classes;
+@include object-fit-classes;
+@include object-position-classes;
+@include overflow-x-classes;
+@include overflow-y-classes;
+@include overflow-classes;
+@include padding-classes;
+@include position-classes;
+@include text-align-classes;
+@include text-color-classes;
+@include text-size-classes;
+@include visibility-classes;
+@include width-classes;
+
+@import './reset.scss';

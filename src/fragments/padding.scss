@@ -1,0 +1,76 @@
+
+@mixin padding-placeholders {  
+  @each $key, $value in $padding-options {
+    %#{$padding-prefix}#{$key} { padding: $value; }
+    @include breakpoint-placeholders(#{$padding-prefix}#{$key}) { padding: $value; };
+    @include pseudoclass-placeholders(#{$padding-prefix}#{$key}) { padding: $value; };
+  }
+  @each $key, $value in $padding-options {
+    %#{$padding-x-prefix}#{$key} { padding-left: $value; padding-right: $value; }
+    @include breakpoint-placeholders(#{$padding-x-prefix}#{$key}) { padding-left: $value; padding-right: $value; };
+    @include pseudoclass-placeholders(#{$padding-x-prefix}#{$key}) { padding-left: $value; padding-right: $value; };
+  }
+  @each $key, $value in $padding-options {
+    %#{$padding-y-prefix}#{$key} { padding-top: $value; padding-bottom: $value; }
+    @include breakpoint-placeholders(#{$padding-y-prefix}#{$key}) { padding-top: $value; padding-bottom: $value; };
+    @include pseudoclass-placeholders(#{$padding-y-prefix}#{$key}) { padding-top: $value; padding-bottom: $value; };
+  }
+  @each $key, $value in $padding-options {
+    %#{$padding-t-prefix}#{$key} { padding-top: $value;}
+    @include breakpoint-placeholders(#{$padding-t-prefix}#{$key}) { padding-top: $value; };
+    @include pseudoclass-placeholders(#{$padding-t-prefix}#{$key}) { padding-top: $value; };
+  }
+  @each $key, $value in $padding-options {
+    %#{$padding-r-prefix}#{$key} { padding-right: $value;}
+    @include breakpoint-placeholders(#{$padding-r-prefix}#{$key}) { padding-right: $value; };
+    @include pseudoclass-placeholders(#{$padding-r-prefix}#{$key}) { padding-right: $value; };
+  }
+  @each $key, $value in $padding-options {
+    %#{$padding-b-prefix}#{$key} { padding-bottom: $value;}
+    @include breakpoint-placeholders(#{$padding-b-prefix}#{$key}) { padding-bottom: $value; };
+    @include pseudoclass-placeholders(#{$padding-b-prefix}#{$key}) { padding-bottom: $value; };
+  }
+  @each $key, $value in $padding-options {
+    %#{$padding-l-prefix}#{$key} { padding-left: $value;}
+    @include breakpoint-placeholders(#{$padding-l-prefix}#{$key}) { padding-left: $value; };
+    @include pseudoclass-placeholders(#{$padding-l-prefix}#{$key}) { padding-left: $value; };
+  }
+}
+
+@mixin padding-classes {  
+  @each $key, $value in $padding-options {
+    .#{$padding-prefix}#{$key} { padding: $value; }
+    @include breakpoint-classes(#{$padding-prefix}#{$key}) { padding: $value; };
+    @include pseudoclass-classes(#{$padding-prefix}#{$key}) { padding: $value; };
+  }
+  @each $key, $value in $padding-options {
+    .#{$padding-x-prefix}#{$key} { padding-left: $value; padding-right: $value; }
+    @include breakpoint-classes(#{$padding-x-prefix}#{$key}) { padding-left: $value; padding-right: $value; };
+    @include pseudoclass-classes(#{$padding-x-prefix}#{$key}) { padding-left: $value; padding-right: $value; };
+  }
+  @each $key, $value in $padding-options {
+    .#{$padding-y-prefix}#{$key} { padding-top: $value; padding-bottom: $value; }
+    @include breakpoint-classes(#{$padding-y-prefix}#{$key}) { padding-top: $value; padding-bottom: $value; };
+    @include pseudoclass-classes(#{$padding-y-prefix}#{$key}) { padding-top: $value; padding-bottom: $value; };
+  }
+  @each $key, $value in $padding-options {
+    .#{$padding-t-prefix}#{$key} { padding-top: $value;}
+    @include breakpoint-classes(#{$padding-t-prefix}#{$key}) { padding-top: $value; };
+    @include pseudoclass-classes(#{$padding-t-prefix}#{$key}) { padding-top: $value; };
+  }
+  @each $key, $value in $padding-options {
+    .#{$padding-r-prefix}#{$key} { padding-right: $value;}
+    @include breakpoint-classes(#{$padding-r-prefix}#{$key}) { padding-right: $value; };
+    @include pseudoclass-classes(#{$padding-r-prefix}#{$key}) { padding-right: $value; };
+  }
+  @each $key, $value in $padding-options {
+    .#{$padding-b-prefix}#{$key} { padding-bottom: $value;}
+    @include breakpoint-classes(#{$padding-b-prefix}#{$key}) { padding-bottom: $value; };
+    @include pseudoclass-classes(#{$padding-b-prefix}#{$key}) { padding-bottom: $value; };
+  }
+  @each $key, $value in $padding-options {
+    .#{$padding-l-prefix}#{$key} { padding-left: $value;}
+    @include breakpoint-classes(#{$padding-l-prefix}#{$key}) { padding-left: $value; };
+    @include pseudoclass-classes(#{$padding-l-prefix}#{$key}) { padding-left: $value; };
+  }
+}

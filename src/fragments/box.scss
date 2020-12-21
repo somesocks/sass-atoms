@@ -1,0 +1,16 @@
+
+@mixin box-placeholders {  
+  @each $key, $value in $box-options {
+    %#{$box-prefix}#{$key} { box-sizing: $value; }
+    @include breakpoint-placeholders(#{$box-prefix}#{$key}) { box-sizing: $value; };
+    @include pseudoclass-placeholders(#{$box-prefix}#{$key}) { box-sizing: $value; };
+  }
+}
+
+@mixin box-classes {  
+  @each $key, $value in $box-options {
+    .#{$box-prefix}#{$key} { box-sizing: $value; }
+    @include breakpoint-classes(#{$box-prefix}#{$key}) { box-sizing: $value; };
+    @include pseudoclass-classes(#{$box-prefix}#{$key}) { box-sizing: $value; };
+  }
+}

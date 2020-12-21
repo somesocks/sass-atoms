@@ -1,0 +1,16 @@
+
+@mixin overflow-x-placeholders {  
+  @each $key, $value in $overflow-x-options {
+    %#{$overflow-x-prefix}#{$key} { overflow-x: $value; }
+    @include breakpoint-placeholders(#{$overflow-x-prefix}#{$key}) { overflow-x: $value; };
+    @include pseudoclass-placeholders(#{$overflow-x-prefix}#{$key}) { overflow-x: $value; };
+  }
+}
+
+@mixin overflow-x-classes {  
+  @each $key, $value in $overflow-x-options {
+    .#{$overflow-x-prefix}#{$key} { overflow-x: $value; }
+    @include breakpoint-classes(#{$overflow-x-prefix}#{$key}) { overflow-x: $value; };
+    @include pseudoclass-classes(#{$overflow-x-prefix}#{$key}) { overflow-x: $value; };
+  }
+}

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#
+# turn this on to debug script
+# set -x
+
+#
+# abort on error
+# https://sipb.mit.edu/doc/safe-shell/
+set -euf -o pipefail
+
+ROOT_DIR=.
+SRC_DIR=$ROOT_DIR/src
+DIST_DIR=$ROOT_DIR/dist
+
+echo "starting clean"
+
+cd $DIST_DIR && npm publish --dry-run
+
+echo "done"

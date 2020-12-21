@@ -1,0 +1,16 @@
+
+@mixin font-family-placeholders {  
+  @each $key, $value in $font-family-options {
+    %#{$font-family-prefix}#{$key} { font-family: $value; }
+    @include breakpoint-placeholders(#{$font-family-prefix}#{$key}) { font-family: $value; };
+    @include pseudoclass-placeholders(#{$font-family-prefix}#{$key}) { font-family: $value; };
+  }
+}
+
+@mixin font-family-classes {  
+  @each $key, $value in $font-family-options {
+    .#{$font-family-prefix}#{$key} { font-family: $value; }
+    @include breakpoint-classes(#{$font-family-prefix}#{$key}) { font-family: $value; };
+    @include pseudoclass-classes(#{$font-family-prefix}#{$key}) { font-family: $value; };
+  }
+}

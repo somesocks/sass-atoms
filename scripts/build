@@ -1,0 +1,168 @@
+#!/usr/bin/env bash
+
+#
+# turn this on to debug script
+# set -x
+
+#
+# abort on error
+# https://sipb.mit.edu/doc/safe-shell/
+set -euf -o pipefail
+
+ROOT_DIR=.
+SRC_DIR=$ROOT_DIR/src
+DIST_DIR=$ROOT_DIR/dist
+
+echo "starting build check"
+
+# SOURCE_HASH_FILE is the name of the source hash to check against
+SOURCE_HASH_FILE=.SOURCE_HASH
+
+# SHOULD_REBUILD is the flag to check if a rebuild is needed
+SHOULD_REBUILD=1
+
+_MAKE_SOURCE_HASH() {
+	echo "calculating source hash";
+	SOURCE_HASH=`find $ROOT_DIR \
+		\( -type f -and -path "$SRC_DIR/*" \) -or \
+		\( -type f -and -path "$ROOT_DIR/package.json" \) \
+		| \
+		sort \
+			--stable \
+			--ignore-case \
+			--field-separator=/ \
+			--key=2.2 \
+			--key=2.1 \
+		| \
+		xargs \
+			md5sum  \
+		| \
+		md5sum `
+	# echo "source hash $SOURCE_HASH";
+}
+
+_CHECK_SOURCE_HASH() {
+	echo "verifying source hash against build";
+	if [ -f $DIST_DIR/$SOURCE_HASH_FILE ]
+	then
+		DIST_SOURCE_HASH=$(cat $DIST_DIR/$SOURCE_HASH_FILE);
+		# echo "dist source hash $DIST_SOURCE_HASH";
+		if [ "$SOURCE_HASH" == "$DIST_SOURCE_HASH" ]
+		then
+			echo "source hash '$SOURCE_HASH' is equal to dist source hash '$DIST_SOURCE_HASH'";
+			SHOULD_REBUILD=0;
+		else
+			echo "source hash '$SOURCE_HASH' is not equal to dist source hash '$DIST_SOURCE_HASH'";
+			SHOULD_REBUILD=1;
+		fi
+	else
+		SHOULD_REBUILD=1;
+	fi
+}
+
+_MAKE_BUILD_DIR () {
+	#
+	# make a temporary build dir
+	# this command is linux / osx agnostic
+	# https://unix.stackexchange.com/questions/30091/fix-or-alternative-for-mktemp-in-os-x
+	echo "creating temporary build dir"
+	BUILD_DIR=''
+	BUILD_DIR=`mktemp -d 2>/dev/null || mktemp -d -t 'build-dir'`
+}
+
+_UNMAKE_BUILD_DIR () {
+	#
+	# clean up build dir
+	echo "removing temporary build dir"
+	rm -rf $BUILD_DIR
+}
+
+_COPY_ASSETS () {
+	#
+	# copy src/**/*.js into temp dir
+	echo "copying src into build dir"
+	rsync \
+		--update \
+		--recursive \
+		--include='*' \
+		$SRC_DIR/ \
+		$BUILD_DIR
+		# --itemize-changes \
+}
+
+_BUILD_BUNDLES () {
+	echo 'compiling bundles into build dir'
+	find $BUILD_DIR \
+		\( -type f -name "*.bundle.scss" \) \
+	| xargs -I % npx sass --load-path=$BUILD_DIR % %.css
+
+	# ls -al $BUILD_DIR/components
+	# find $BUILD_DIR -type f -name "*.bundle.scss.css" | cat
+
+	find $BUILD_DIR -name "*.bundle.scss.css" -exec rename 's/\.bundle.scss.css$/.css/' '{}' +
+	find $BUILD_DIR -name "*.bundle.scss.css.map" -exec rename 's/\.bundle.scss.css.map$/.css.map/' '{}' +
+
+	# find $BUILD_DIR -type f -name "*.bundle.scss" | cat
+	find $BUILD_DIR -type f -name "*.bundle.scss" | xargs -I % rm %
+	# find $BUILD_DIR -type f -name "*.bundle.scss" | cat
+
+
+	# find $BUILD_DIR -type f -name "*.bundle.scss.css" -exec bash -c 'mv "$1" "${1%.bundle.scss.css}".bundle.css' - '{}' +
+	# find $BUILD_DIR -type f -name "*.bundle.scss.css.map" -exec bash -c 'mv "$1" "${1%.bundle.scss.css.map}".bundle.css.map' - '{}' +
+
+	echo ""
+
+	# find $BUILD_DIR -type f -name "*.bundle.scss.css" | cat
+
+	# ls -al $BUILD_DIR/components
+
+	echo "done"
+}
+
+_BUILD_EXTRAS () {
+	echo 'copying extras into build dir'
+	echo "$SOURCE_HASH" > $BUILD_DIR/$SOURCE_HASH_FILE
+	cp $ROOT_DIR/package.json $BUILD_DIR
+	cp $ROOT_DIR/LICENSE $BUILD_DIR
+	cp $ROOT_DIR/README.md $BUILD_DIR
+	echo "done"
+}
+
+_WRITE_BUILD_TO_DIST () {
+	#
+	# use rsync to fast-sync the dist dir with the build dir
+	# 'temp' is excluded to work around an issue with local temp dirs getting used
+	echo "writing build to dist"
+	rsync \
+		--update \
+		--recursive \
+		--exclude='temp' \
+		--delete \
+		$BUILD_DIR/ \
+		$DIST_DIR
+		# --itemize-changes \
+}
+
+_CLEANUP () {
+	_UNMAKE_BUILD_DIR || true
+	echo ""
+}
+
+_MAKE_SOURCE_HASH
+_CHECK_SOURCE_HASH
+
+if [ $SHOULD_REBUILD == 1 ]
+then
+	echo "starting build"
+	trap _CLEANUP ERR EXIT
+	_MAKE_BUILD_DIR
+	_COPY_ASSETS
+	_BUILD_BUNDLES
+	_BUILD_EXTRAS
+	_WRITE_BUILD_TO_DIST
+	echo "build for finished!"
+	echo ""
+else
+	echo "build is up-to-date, exiting"
+	echo ""
+fi

@@ -1,0 +1,62 @@
+
+@import '../placeholders.scss';
+
+@import '../variables/colors';
+
+
+
+.banner {
+  @extend
+    %w-p12,
+    %d-inline-block,
+    %box-border
+  ;
+
+  &.-xs {
+    @extend %h-vh4,
+    %h-vh4--md,
+    %h-vh3--lg,
+    %h-vh2--xl,
+    %h-vh2--xxl;
+  }
+
+  &.-sm {
+    @extend %h-vh5,
+    %h-vh4--md,
+    %h-vh4--lg,
+    %h-vh3--xl,
+    %h-vh3--xxl;
+  }
+
+  &.-md {
+    @extend %h-vh8,
+    %h-vh6--md,
+    %h-vh6--lg,
+    %h-vh4--xl,
+    %h-vh4--xxl;
+  }
+
+  &.-lg {
+    @extend %h-vh12,
+    %h-vh10--md,
+    %h-vh10--lg,
+    %h-vh8--xl,
+    %h-vh8--xxl;
+  }
+
+  &.-xl {
+    @extend %h-vh12,
+    %h-vh11--md,
+    %h-vh11--lg,
+    %h-vh10--xl,
+    %h-vh10--xxl;
+  }
+
+  @each $color-prefix, $color-table in $color-options {
+    @each $color-key, $color-value in $color-table {
+      &.-#{$color-prefix}#{$color-key} { color: $color-value; }
+      &.-bg-#{$color-prefix}#{$color-key} { background-color: $color-value; }
+      &.-border-#{$color-prefix}#{$color-key} { border-color: $color-value; }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+
+$background-clip-prefix: 'bg-clip-' !default;
+
+$background-clip-options: (
+  "border": 'border-box',
+  "padding": 'padding-box',
+  "content": 'content-box',
+  "text": 'text',
+) !default;

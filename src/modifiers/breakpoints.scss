@@ -1,0 +1,32 @@
+
+
+@function _specificity($index) {
+  $result: "";
+  @for $_ from 1 through $index {
+    $result: ":not(:root)" + $result;
+  }
+  @return $result;
+}
+
+@mixin breakpoint-placeholders($classname) {
+  @each $key, $value in $breakpoint-options {
+    $index: index(($breakpoint-options), ($key $value));
+    %#{$classname}--#{$key} {
+      @media (min-width: $value) {
+        &#{_specificity($index)} {
+          @content;
+        }
+      }
+    }    
+  }
+}
+
+@mixin breakpoint-classes($classname) {
+  @each $key, $value in $breakpoint-options {
+    .#{$classname}--#{$key} {
+      @media (min-width: $value) {
+        @content;
+      }
+    }    
+  }
+}

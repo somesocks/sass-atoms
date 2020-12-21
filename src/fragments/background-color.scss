@@ -1,0 +1,20 @@
+
+@mixin background-color-placeholders {
+  @each $color-prefix, $color-table in $color-options {
+    @each $color-key, $color-value in $color-table {
+      %#{$background-color-prefix}#{$color-prefix}#{$color-key} { background-color: $color-value; }
+      @include breakpoint-placeholders(#{$background-color-prefix}#{$color-prefix}#{$color-key}) { background-color: $color-value; };  
+      @include pseudoclass-placeholders(#{$background-color-prefix}#{$color-prefix}#{$color-key}) { background-color: $color-value; };  
+    }
+  }
+}
+
+@mixin background-color-classes {  
+  @each $color-prefix, $color-table in $color-options {
+    @each $color-key, $color-value in $color-table {
+      .#{$background-color-prefix}#{$color-prefix}#{$color-key} { background-color: $color-value; }
+      @include breakpoint-classes(#{$background-color-prefix}#{$color-prefix}#{$color-key}) { background-color: $color-value; };  
+      @include pseudoclass-classes(#{$background-color-prefix}#{$color-prefix}#{$color-key}) { background-color: $color-value; };  
+    }
+  }
+}

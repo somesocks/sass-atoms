@@ -1,0 +1,16 @@
+
+@mixin overflow-y-placeholders {  
+  @each $key, $value in $overflow-y-options {
+    %#{$overflow-y-prefix}#{$key} { overflow-y: $value; }
+    @include breakpoint-placeholders(#{$overflow-y-prefix}#{$key}) { overflow-y: $value; };
+    @include pseudoclass-placeholders(#{$overflow-y-prefix}#{$key}) { overflow-y: $value; };
+  }
+}
+
+@mixin overflow-y-classes {  
+  @each $key, $value in $overflow-y-options {
+    .#{$overflow-y-prefix}#{$key} { overflow-y: $value; }
+    @include breakpoint-classes(#{$overflow-y-prefix}#{$key}) { overflow-y: $value; };
+    @include pseudoclass-classes(#{$overflow-y-prefix}#{$key}) { overflow-y: $value; };
+  }
+}

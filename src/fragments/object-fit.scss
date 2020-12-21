@@ -1,0 +1,16 @@
+
+@mixin object-fit-placeholders {  
+  @each $key, $value in $object-fit-options {
+    %#{$object-fit-prefix}#{$key} { object-fit: $value; }
+    @include breakpoint-placeholders(#{$object-fit-prefix}#{$key}) { object-fit: $value; };
+    @include pseudoclass-placeholders(#{$object-fit-prefix}#{$key}) { object-fit: $value; };
+  }
+}
+
+@mixin object-fit-classes {  
+  @each $key, $value in $object-fit-options {
+    .#{$object-fit-prefix}#{$key} { object-fit: $value; }
+    @include breakpoint-classes(#{$object-fit-prefix}#{$key}) { object-fit: $value; };
+    @include pseudoclass-classes(#{$object-fit-prefix}#{$key}) { object-fit: $value; };
+  }
+}

@@ -1,0 +1,16 @@
+
+@mixin text-align-placeholders {  
+  @each $key, $value in $text-align-options {
+    %#{$text-align-prefix}#{$key} { text-align: $value; }
+    @include breakpoint-placeholders(#{$text-align-prefix}#{$key}) { text-align: $value; };
+    @include pseudoclass-placeholders(#{$text-align-prefix}#{$key}) { text-align: $value; };
+  }
+}
+
+@mixin text-align-classes {  
+  @each $key, $value in $text-align-options {
+    .#{$text-align-prefix}#{$key} { text-align: $value; }
+    @include breakpoint-classes(#{$text-align-prefix}#{$key}) { text-align: $value; };
+    @include pseudoclass-classes(#{$text-align-prefix}#{$key}) { text-align: $value; };
+  }
+}

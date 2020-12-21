@@ -1,0 +1,17 @@
+
+
+@mixin pseudoclass-placeholders($classname) {
+  @each $key, $value in $pseudoclass-options {
+    %#{$classname}--#{$key}:#{$value} {
+      @content;
+    }    
+  }
+}
+
+@mixin pseudoclass-classes($classname) {
+  @each $key, $value in $pseudoclass-options {
+    .#{$classname}--#{$key}:#{$value} {
+      @content;
+    }    
+  }
+}

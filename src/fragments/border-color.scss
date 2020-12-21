@@ -1,0 +1,20 @@
+
+@mixin border-color-placeholders {
+  @each $color-prefix, $color-table in $color-options {
+    @each $color-key, $color-value in $color-table {
+      %#{$border-color-prefix}#{$color-prefix}#{$color-key} { border-color: $color-value; }
+      @include breakpoint-placeholders(#{$border-color-prefix}#{$color-prefix}#{$color-key}) { border-color: $color-value; };  
+      @include pseudoclass-placeholders(#{$border-color-prefix}#{$color-prefix}#{$color-key}) { border-color: $color-value; };  
+    }
+  }
+}
+
+@mixin border-color-classes {  
+  @each $color-prefix, $color-table in $color-options {
+    @each $color-key, $color-value in $color-table {
+      .#{$border-color-prefix}#{$color-prefix}#{$color-key} { border-color: $color-value; }
+      @include breakpoint-classes(#{$border-color-prefix}#{$color-prefix}#{$color-key}) { border-color: $color-value; };  
+      @include pseudoclass-classes(#{$border-color-prefix}#{$color-prefix}#{$color-key}) { border-color: $color-value; };  
+    }
+  }
+}

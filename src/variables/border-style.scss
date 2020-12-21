@@ -1,0 +1,10 @@
+
+$border-style-prefix: "border-" !default;
+
+$border-style-options: (
+  "solid": solid,
+  "dashed": dashed,
+  "dotted": dotted,
+  "double": double,
+  "none": none,
+) !default;

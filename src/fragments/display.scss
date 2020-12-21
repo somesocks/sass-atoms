@@ -1,0 +1,16 @@
+
+@mixin display-placeholders {  
+  @each $key, $value in $display-options {
+    %#{$display-prefix}#{$key} { display: $value; }
+    @include breakpoint-placeholders(#{$display-prefix}#{$key}) { display: $value; };
+    @include pseudoclass-placeholders(#{$display-prefix}#{$key}) { display: $value; };
+  }
+}
+
+@mixin display-classes {  
+  @each $key, $value in $display-options {
+    .#{$display-prefix}#{$key} { display: $value; }
+    @include breakpoint-classes(#{$display-prefix}#{$key}) { display: $value; };
+    @include pseudoclass-classes(#{$display-prefix}#{$key}) { display: $value; };
+  }
+}

@@ -1,0 +1,18 @@
+
+@import '../variables/colors';
+@import '../placeholders.scss';
+
+.page {
+  @extend
+    %w-p12,
+    %hmin-vh12,
+    %box-border,
+    %d-block
+  ;
+
+  @each $color-prefix, $color-table in $color-options {
+    @each $color-key, $color-value in $color-table {
+      &.-bg-#{$color-prefix}#{$color-key} { background-color: $color-value; }
+    }
+  }
+}

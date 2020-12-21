@@ -1,0 +1,16 @@
+
+@mixin background-size-placeholders {  
+  @each $key, $value in $background-size-options {
+    %#{$background-size-prefix}#{$key} { background-size: $value; }
+    @include breakpoint-placeholders(#{$background-size-prefix}#{$key}) { background-size: $value; };
+    @include pseudoclass-placeholders(#{$background-size-prefix}#{$key}) { background-size: $value; };
+  }
+}
+
+@mixin background-size-classes {  
+  @each $key, $value in $background-size-options {
+    .#{$background-size-prefix}#{$key} { background-size: $value; }
+    @include breakpoint-classes(#{$background-size-prefix}#{$key}) { background-size: $value; };
+    @include pseudoclass-classes(#{$background-size-prefix}#{$key}) { background-size: $value; };
+  }
+}

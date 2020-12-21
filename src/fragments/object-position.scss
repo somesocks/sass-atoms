@@ -1,0 +1,16 @@
+
+@mixin object-position-placeholders {  
+  @each $key, $value in $object-position-options {
+    %#{$object-position-prefix}#{$key} { object-position: $value; }
+    @include breakpoint-placeholders(#{$object-position-prefix}#{$key}) { object-position: $value; };
+    @include pseudoclass-placeholders(#{$object-position-prefix}#{$key}) { object-position: $value; };
+  }
+}
+
+@mixin object-position-classes {  
+  @each $key, $value in $object-position-options {
+    .#{$object-position-prefix}#{$key} { object-position: $value; }
+    @include breakpoint-classes(#{$object-position-prefix}#{$key}) { object-position: $value; };
+    @include pseudoclass-classes(#{$object-position-prefix}#{$key}) { object-position: $value; };
+  }
+}

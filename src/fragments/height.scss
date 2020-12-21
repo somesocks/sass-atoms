@@ -1,0 +1,37 @@
+
+@mixin height-placeholders {  
+  @each $key, $value in $height-options {
+    %#{$height-prefix}#{$key} { height: $value; }
+    @include breakpoint-placeholders(#{$height-prefix}#{$key}) { height: $value; };
+    @include pseudoclass-placeholders(#{$height-prefix}#{$key}) { height: $value; };
+  }
+  @each $key, $value in $height-options {
+    %#{$min-height-prefix}#{$key} { min-height: $value; }
+    @include breakpoint-placeholders(#{$min-height-prefix}#{$key}) { min-height: $value; };
+    @include pseudoclass-placeholders(#{$min-height-prefix}#{$key}) { min-height: $value; };
+  }
+  @each $key, $value in $height-options {
+    %#{$max-height-prefix}#{$key} { max-height: $value; }
+    @include breakpoint-placeholders(#{$max-height-prefix}#{$key}) { max-height: $value; };
+    @include pseudoclass-placeholders(#{$max-height-prefix}#{$key}) { max-height: $value; };
+  }
+
+}
+
+@mixin height-classes {  
+  @each $key, $value in $height-options {
+    .#{$height-prefix}#{$key} { height: $value; }
+    @include breakpoint-classes(#{$height-prefix}#{$key}) { height: $value; };
+    @include pseudoclass-classes(#{$height-prefix}#{$key}) { height: $value; };
+  }
+  @each $key, $value in $height-options {
+    .#{$min-height-prefix}#{$key} { min-height: $value; }
+    @include breakpoint-classes(#{$min-height-prefix}#{$key}) { min-height: $value; };
+    @include pseudoclass-classes(#{$min-height-prefix}#{$key}) { min-height: $value; };
+  }
+  @each $key, $value in $height-options {
+    .#{$max-height-prefix}#{$key} { max-height: $value; }
+    @include breakpoint-classes(#{$max-height-prefix}#{$key}) { max-height: $value; };
+    @include pseudoclass-classes(#{$max-height-prefix}#{$key}) { max-height: $value; };
+  }
+}

@@ -1,0 +1,16 @@
+
+@mixin clear-placeholders {  
+  @each $key, $value in $clear-options {
+    %#{$clear-prefix}#{$key} { clear: $value; }
+    @include breakpoint-placeholders(#{$clear-prefix}#{$key}) { clear: $value; };
+    @include pseudoclass-placeholders(#{$clear-prefix}#{$key}) { clear: $value; };
+  }
+}
+
+@mixin clear-classes {  
+  @each $key, $value in $clear-options {
+    .#{$clear-prefix}#{$key} { clear: $value; }
+    @include breakpoint-classes(#{$clear-prefix}#{$key}) { clear: $value; };
+    @include pseudoclass-classes(#{$clear-prefix}#{$key}) { clear: $value; };
+  }
+}
