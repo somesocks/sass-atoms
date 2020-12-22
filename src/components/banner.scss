@@ -11,78 +11,78 @@
     %p-4--lg,
   ;
 
-  // & .title {
-  //   @extend
-  //     %text-4xl
-  //   ;
-  // }
+  & .title {
+    @extend
+      %text-4xl
+    ;
+  }
 
-  // & .subtitle {
-  //   @extend
-  //     %text-2xl
-  //   ;
-  // }
+  & .subtitle {
+    @extend
+      %text-2xl
+    ;
+  }
 
-  // & .text {
-  //   @extend %text-md;
-  // }
+  & .text {
+    @extend %text-md;
+  }
 
-  // &.xs {
-  //   @extend %h-vh4,
-  //   %h-vh4--md,
-  //   %h-vh3--lg,
-  //   %h-vh2--xl,
-  //   ;
-  // }
+  &.xs {
+    @extend %h-vh4,
+    %h-vh4--md,
+    %h-vh3--lg,
+    %h-vh2--xl,
+    ;
+  }
 
-  // &.sm {
-  //   @extend %h-vh5,
-  //   %h-vh4--md,
-  //   %h-vh4--lg,
-  //   %h-vh3--xl,
-  //   ;
-  // }
+  &.sm {
+    @extend %h-vh5,
+    %h-vh4--md,
+    %h-vh4--lg,
+    %h-vh3--xl,
+    ;
+  }
 
-  // &.md {
-  //   @extend %h-vh8,
-  //   %h-vh6--md,
-  //   %h-vh6--lg,
-  //   %h-vh4--xl,
-  //   ;
-  // }
+  &.md {
+    @extend %h-vh8,
+    %h-vh6--md,
+    %h-vh6--lg,
+    %h-vh4--xl,
+    ;
+  }
 
-  // &.lg {
-  //   @extend %h-vh12,
-  //   %h-vh10--md,
-  //   %h-vh10--lg,
-  //   %h-vh8--xl,
-  //   %p-4,
-  //   ;
-  // }
+  &.lg {
+    @extend %h-vh12,
+    %h-vh10--md,
+    %h-vh10--lg,
+    %h-vh8--xl,
+    %p-4,
+    ;
+  }
 
-  // &.xl {
-  //   @extend %h-vh12,
-  //   %h-vh11--md,
-  //   %h-vh11--lg,
-  //   %h-vh10--xl,
-  //   %p-6
-  //   ;
-  // }
+  &.xl {
+    @extend %h-vh12,
+    %h-vh11--md,
+    %h-vh11--lg,
+    %h-vh10--xl,
+    %p-6
+    ;
+  }
 
 
 }
 
 
-$background-options: (
-  'bg-primary-light': 'bg-primary-100',
-  'bg-primary-dark': 'bg-primary-900',
-  'bg-secondary-light': 'bg-secondary-100',
-  'bg-secondary-dark': 'bg-secondary-900',
-);
+// $background-options: (
+//   'bg-primary-light': 'bg-primary-100',
+//   'bg-primary-dark': 'bg-primary-900',
+//   'bg-secondary-light': 'bg-secondary-100',
+//   'bg-secondary-dark': 'bg-secondary-900',
+// );
 
 // use the `materialize` mixin to generate real classes from placeholders
 // the second argument is a selector to prefix to the class, to add specificity
-@include materialize($background-options, '.banner');
+@include materialize($background-color-atoms, '.banner');
 
 
 // @include materialize($text-color-atoms, '.banner');

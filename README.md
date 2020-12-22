@@ -213,3 +213,22 @@ Will compile to:
   width: 100%;
 }
 ```
+
+You can also use this to add all default atoms to a class, but this will result in a large output:
+
+```
+  .banner {
+    @extend
+      %w-p12,
+      %d-inline-block,
+      %box-border,
+      %p-2,
+      %p-3--md,
+      %p-4--lg,
+    ;
+  }
+
+  // use the `materialize` mixin to generate real classes from placeholders
+  // the second argument is a selector to prefix to the class, to add specificity
+  @include materialize($background-color-atoms, '.banner');
+```
