@@ -1,7 +1,7 @@
 
 @import '../utils/map.scss';
 
-$grid-template-rows-prefix: 'grid-cols-' !default;
+$grid-template-rows-prefix: 'grid-rows-' !default;
 
 $grid-template-rows-table: map-prefix(
   (
@@ -31,3 +31,7 @@ $grid-template-rows-atoms--states: ();
   $grid-template-rows-atoms--breakpoints: breakpoint-variants($grid-template-rows-atoms--breakpoints, $key);
   $grid-template-rows-atoms--states: state-variants($grid-template-rows-atoms--states, $key);
 }
+
+// @debug $grid-template-rows-atoms;
+// @debug $grid-template-rows-atoms--breakpoints;
+// @debug $grid-template-rows-atoms--states;

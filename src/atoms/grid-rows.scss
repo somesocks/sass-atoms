@@ -32,3 +32,7 @@ $grid-rows-atoms--states: ();
   $grid-rows-atoms--breakpoints: breakpoint-variants($grid-rows-atoms--breakpoints, $key);
   $grid-rows-atoms--states: state-variants($grid-rows-atoms--states, $key);
 }
+
+// @debug $grid-rows-atoms;
+// @debug $grid-rows-atoms--breakpoints;
+// @debug $grid-rows-atoms--states;

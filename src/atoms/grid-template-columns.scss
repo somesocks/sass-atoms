@@ -37,3 +37,7 @@ $grid-template-columns-atoms--states: ();
   $grid-template-columns-atoms--breakpoints: breakpoint-variants($grid-template-columns-atoms--breakpoints, $key);
   $grid-template-columns-atoms--states: state-variants($grid-template-columns-atoms--states, $key);
 }
+
+// @debug $grid-template-columns-atoms;
+// @debug $grid-template-columns-atoms--breakpoints;
+// @debug $grid-template-columns-atoms--states;
