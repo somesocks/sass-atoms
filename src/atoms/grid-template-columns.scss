@@ -1,0 +1,39 @@
+
+@import '../utils/map.scss';
+
+$grid-template-columns-prefix: 'grid-cols-' !default;
+
+$grid-template-columns-table: map-prefix(
+  (
+    '1': repeat(1, minmax(0, 1fr)),
+    '2': repeat(2, minmax(0, 1fr)),
+    '3': repeat(3, minmax(0, 1fr)),
+    '4': repeat(4, minmax(0, 1fr)),
+    '5': repeat(5, minmax(0, 1fr)),
+    '6': repeat(6, minmax(0, 1fr)),
+    '7': repeat(7, minmax(0, 1fr)),
+    '8': repeat(8, minmax(0, 1fr)),
+    '9': repeat(9, minmax(0, 1fr)),
+    '10': repeat(10, minmax(0, 1fr)),
+    '11': repeat(11, minmax(0, 1fr)),
+    '12': repeat(12, minmax(0, 1fr)),
+    'none': none,
+  ),
+  $grid-template-columns-prefix
+) !default;
+
+@each $key, $value in $grid-template-columns-table {
+  %#{$key} { grid-template-columns: $value; }
+  @include breakpoint-placeholders(#{$key}) { grid-template-columns: $value; };
+  @include state-placeholders(#{$key}) { grid-template-columns: $value; };
+}
+
+$grid-template-columns-atoms: ();
+$grid-template-columns-atoms--breakpoints: ();
+$grid-template-columns-atoms--states: ();
+
+@each $key, $value in $grid-template-columns-table {
+  $grid-template-columns-atoms: append($grid-template-columns-atoms, $key);
+  $grid-template-columns-atoms--breakpoints: breakpoint-variants($grid-template-columns-atoms--breakpoints, $key);
+  $grid-template-columns-atoms--states: state-variants($grid-template-columns-atoms--states, $key);
+}

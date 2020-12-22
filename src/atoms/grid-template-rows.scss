@@ -1,0 +1,33 @@
+
+@import '../utils/map.scss';
+
+$grid-template-rows-prefix: 'grid-cols-' !default;
+
+$grid-template-rows-table: map-prefix(
+  (
+    '1': repeat(1, minmax(0, 1fr)),
+    '2': repeat(2, minmax(0, 1fr)),
+    '3': repeat(3, minmax(0, 1fr)),
+    '4': repeat(4, minmax(0, 1fr)),
+    '5': repeat(5, minmax(0, 1fr)),
+    '6': repeat(6, minmax(0, 1fr)),
+    'none': none,
+  ),
+  $grid-template-rows-prefix
+) !default;
+
+@each $key, $value in $grid-template-rows-table {
+  %#{$key} { grid-template-rows: $value; }
+  @include breakpoint-placeholders(#{$key}) { grid-template-rows: $value; };
+  @include state-placeholders(#{$key}) { grid-template-rows: $value; };
+}
+
+$grid-template-rows-atoms: ();
+$grid-template-rows-atoms--breakpoints: ();
+$grid-template-rows-atoms--states: ();
+
+@each $key, $value in $grid-template-rows-table {
+  $grid-template-rows-atoms: append($grid-template-rows-atoms, $key);
+  $grid-template-rows-atoms--breakpoints: breakpoint-variants($grid-template-rows-atoms--breakpoints, $key);
+  $grid-template-rows-atoms--states: state-variants($grid-template-rows-atoms--states, $key);
+}

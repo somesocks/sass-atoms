@@ -22,6 +22,10 @@
 @import './float.scss';
 @import './font-family.scss';
 @import './font-weight.scss';
+@import './grid-columns.scss';
+@import './grid-rows.scss';
+@import './grid-template-columns.scss';
+@import './grid-template-rows.scss';
 @import './height.scss';
 @import './justify-content.scss';
 @import './justify-items.scss';
@@ -127,6 +131,22 @@ $atoms: (
   $font-weight-atoms--breakpoints,
   $font-weight-atoms--states,
 
+  $grid-columns-atoms,
+  $grid-columns-atoms--breakpoints,
+  $grid-columns-atoms--states,
+
+  $grid-rows-atoms,
+  $grid-rows-atoms--breakpoints,
+  $grid-rows-atoms--states,
+
+  $grid-template-columns-atoms,
+  $grid-template-columns-atoms--breakpoints,
+  $grid-template-columns-atoms--states,
+
+  $grid-template-rows-atoms,
+  $grid-template-rows-atoms--breakpoints,
+  $grid-template-rows-atoms--states,
+  
   $height-atoms,
   $height-atoms--breakpoints,
   $height-atoms--states,
