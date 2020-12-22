@@ -2,8 +2,13 @@
 @import './modifiers/index.scss';
 @import './atoms/index.scss';
 
+
 @mixin materialize($options, $selector:'') {
-  @each $classname in $options {
-    #{$selector}.#{$classname} { @extend %#{$classname}; }
+  @each $key, $val in $options {
+    $alias: $key;
+    $atom: $val;
+    @if $atom { } @else { $atom: $key }
+      #{$selector}.#{$alias} { @extend %#{$atom}; }
   }
 }
+
