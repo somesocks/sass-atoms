@@ -4,7 +4,10 @@
 .banner {
   @extend
     %w-p12,
-    %d-block,
+    %d-grid,
+    %grid-cols-1,
+    %grid-cols-2--sm,
+    %grid-cols-6--md,
     %box-border,
     %p-2,
     %p-3--md,
@@ -87,4 +90,4 @@
 @include materialize($border-radius-atoms, '.banner');
 @include materialize($padding-atoms, '.banner');
 
-
+@include materialize($grid-columns-atoms, '.banner ');
