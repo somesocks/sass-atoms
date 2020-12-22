@@ -1,0 +1,91 @@
+
+@import '../utils/map.scss';
+
+$width-prefix: 'w-' !default;
+$min-width-prefix: 'wmin-' !default;
+$max-width-prefix: 'wmax-' !default;
+
+$width-table-base: (
+  '0': 0,
+  'vw0': 0vw,
+  'vw1': 8.3333vw,
+  'vw2': 16.6667vw,
+  'vw3': 25vw,
+  'vw4': 33.3333vw,
+  'vw5': 41.6667vw,
+  'vw6': 50vw,
+  'vw7': 58.3333vw,
+  'vw8': 66.6667vw,
+  'vw9': 75vw,
+  'vw10': 83.3333vw,
+  'vw11': 91.6667vw,
+  'vw12': 100vw,
+
+  'p0': 0%,
+  'p1': 8.3333%,
+  'p2': 16.6667%,
+  'p3': 25%,
+  'p4': 33.3333%,
+  'p5': 41.6667%,
+  'p6': 50%,
+  'p7': 58.3333%,
+  'p8': 66.6667%,
+  'p9': 75%,
+  'p10': 83.3333%,
+  'p11': 91.6667%,
+  'p12': 100%,
+) !default;
+
+$width-table: map-prefix(
+  $width-table-base,
+  $width-prefix
+) !default;
+
+$min-width-table: map-prefix(
+  $width-table-base,
+  $min-width-prefix
+) !default;
+
+$max-width-table: map-prefix(
+  $width-table-base,
+  $max-width-prefix
+) !default;
+
+@each $key, $value in $width-table {
+  %#{$key} { width: $value; }
+  @include breakpoint-placeholders(#{$key}) { width: $value; };
+  @include pseudoclass-placeholders(#{$key}) { width: $value; };
+}
+
+$width-atoms: ();
+@each $key, $value in $width-table {
+  $width-atoms: append($width-atoms, $key);
+  $width-atoms: breakpoint-variants($width-atoms, $key);
+  $width-atoms: pseudoclass-variants($width-atoms, $key);
+}
+
+@each $key, $value in $min-width-table {
+  %#{$key} { min-width: $value; }
+  @include breakpoint-placeholders(#{$key}) { min-width: $value; };
+  @include pseudoclass-placeholders(#{$key}) { min-width: $value; };
+}
+
+$min-width-atoms: ();
+@each $key, $value in $min-width-table {
+  $min-width-atoms: append($min-width-atoms, $key);
+  $min-width-atoms: breakpoint-variants($min-width-atoms, $key);
+  $min-width-atoms: pseudoclass-variants($min-width-atoms, $key);
+}
+
+@each $key, $value in $max-width-table {
+  %#{$key} { max-width: $value; }
+  @include breakpoint-placeholders(#{$key}) { max-width: $value; };
+  @include pseudoclass-placeholders(#{$key}) { max-width: $value; };
+}
+
+$max-width-atoms: ();
+@each $key, $value in $max-width-table {
+  $max-width-atoms: append($max-width-atoms, $key);
+  $max-width-atoms: breakpoint-variants($max-width-atoms, $key);
+  $max-width-atoms: pseudoclass-variants($max-width-atoms, $key);
+}

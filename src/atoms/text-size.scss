@@ -1,0 +1,33 @@
+
+@import '../utils/map.scss';
+
+$text-size-prefix: 'text-' !default;
+
+$text-size-table: map-prefix(
+  (
+    'xs': 0.75rem,
+    'sm': 0.875rem,
+    'md': 1rem,
+    'lg': 1.125rem,
+    'xl': 1.25rem,
+    '2xl': 1.5rem,
+    '3xl': 1.875rem,
+    '4xl': 2.25rem,
+    '5xl': 3rem,
+    '6xl': 3.75rem,
+  ),
+  $text-size-prefix
+) !default;
+
+@each $key, $value in $text-size-table {
+  %#{$key} { font-size: $value; }
+  @include breakpoint-placeholders(#{$key}) { font-size: $value; };
+  @include pseudoclass-placeholders(#{$key}) { font-size: $value; };
+}
+
+$text-size-atoms: ();
+@each $key, $value in $text-size-table {
+  $text-size-atoms: append($text-size-atoms, $key);
+  $text-size-atoms: breakpoint-variants($text-size-atoms, $key);
+  $text-size-atoms: pseudoclass-variants($text-size-atoms, $key);
+}

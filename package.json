@@ -1,5 +1,5 @@
 {
-  "name": "sass-toolbox",
+  "name": "sass-atoms",
   "version": "0.1.0",
   "devDependencies": {
     "sass": "^1.30.0"

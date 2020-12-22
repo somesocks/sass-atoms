@@ -1,0 +1,152 @@
+
+@import '../utils/map.scss';
+
+$margin-prefix: 'm-' !default;
+$margin-x-prefix: 'mx-' !default;
+$margin-y-prefix: 'my-' !default;
+$margin-t-prefix: 'mt-' !default;
+$margin-r-prefix: 'mr-' !default;
+$margin-b-prefix: 'mb-' !default;
+$margin-l-prefix: 'ml-' !default;
+
+$margin-table-base: (
+  '0': 0rem,
+  '1': 0.5rem,
+  '2': 1rem,
+  '3': 1.5rem,
+  '4': 2rem,
+  '5': 2.5rem,
+  '6': 3rem,
+) !default;
+
+$margin-table: map-prefix(
+  $margin-table-base,
+  $margin-prefix,
+) !default;
+
+$margin-x-table: map-prefix(
+  $margin-table-base,
+  $margin-x-prefix,
+) !default;
+
+$margin-y-table: map-prefix(
+  $margin-table-base,
+  $margin-y-prefix,
+) !default;
+
+$margin-t-table: map-prefix(
+  $margin-table-base,
+  $margin-t-prefix,
+) !default;
+
+$margin-r-table: map-prefix(
+  $margin-table-base,
+  $margin-r-prefix,
+) !default;
+
+$margin-b-table: map-prefix(
+  $margin-table-base,
+  $margin-b-prefix,
+) !default;
+
+$margin-l-table: map-prefix(
+  $margin-table-base,
+  $margin-l-prefix,
+) !default;
+
+@each $key, $value in $margin-table {
+  %#{$key} { margin: $value; }
+  @include breakpoint-placeholders(#{$key}) { margin: $value; };
+  @include pseudoclass-placeholders(#{$key}) { margin: $value; };
+}
+
+$margin-atoms: ();
+@each $key, $value in $margin-table {
+  $margin-atoms: append($margin-atoms, $key);
+  $margin-atoms: breakpoint-variants($margin-atoms, $key);
+  $margin-atoms: pseudoclass-variants($margin-atoms, $key);
+}
+
+
+@each $key, $value in $margin-x-table {
+  %#{$key} { margin-left: $value; margin-right: $value; }
+  @include breakpoint-placeholders(#{$key}) { margin-left: $value; margin-right: $value; };
+  @include pseudoclass-placeholders(#{$key}) { margin-left: $value; margin-right: $value; };
+}
+
+$margin-x-atoms: ();
+@each $key, $value in $margin-x-table {
+  $margin-x-atoms: append($margin-x-atoms, $key);
+  $margin-x-atoms: breakpoint-variants($margin-x-atoms, $key);
+  $margin-x-atoms: pseudoclass-variants($margin-x-atoms, $key);
+}
+
+
+@each $key, $value in $margin-y-table {
+  %#{$key} { margin-top: $value; margin-bottom: $value; }
+  @include breakpoint-placeholders(#{$key}) { margin-top: $value; margin-bottom: $value; };
+  @include pseudoclass-placeholders(#{$key}) { margin-top: $value; margin-bottom: $value; };
+}
+
+$margin-y-atoms: ();
+@each $key, $value in $margin-y-table {
+  $margin-y-atoms: append($margin-y-atoms, $key);
+  $margin-y-atoms: breakpoint-variants($margin-y-atoms, $key);
+  $margin-y-atoms: pseudoclass-variants($margin-y-atoms, $key);
+}
+
+
+@each $key, $value in $margin-t-table {
+  %#{$key} { margin-top: $value; }
+  @include breakpoint-placeholders(#{$key}) { margin-top: $value; };
+  @include pseudoclass-placeholders(#{$key}) { margin-top: $value; };
+}
+
+$margin-t-atoms: ();
+@each $key, $value in $margin-t-table {
+  $margin-t-atoms: append($margin-t-atoms, $key);
+  $margin-t-atoms: breakpoint-variants($margin-t-atoms, $key);
+  $margin-t-atoms: pseudoclass-variants($margin-t-atoms, $key);
+}
+
+
+@each $key, $value in $margin-r-table {
+  %#{$key} { margin-right: $value; }
+  @include breakpoint-placeholders(#{$key}) { margin-right: $value; };
+  @include pseudoclass-placeholders(#{$key}) { margin-right: $value; };
+}
+
+$margin-r-atoms: ();
+@each $key, $value in $margin-r-table {
+  $margin-r-atoms: append($margin-r-atoms, $key);
+  $margin-r-atoms: breakpoint-variants($margin-r-atoms, $key);
+  $margin-r-atoms: pseudoclass-variants($margin-r-atoms, $key);
+}
+
+
+@each $key, $value in $margin-b-table {
+  %#{$key} { margin-bottom: $value; }
+  @include breakpoint-placeholders(#{$key}) { margin-bottom: $value; };
+  @include pseudoclass-placeholders(#{$key}) { margin-bottom: $value; };
+}
+
+$margin-b-atoms: ();
+@each $key, $value in $margin-b-table {
+  $margin-b-atoms: append($margin-b-atoms, $key);
+  $margin-b-atoms: breakpoint-variants($margin-b-atoms, $key);
+  $margin-b-atoms: pseudoclass-variants($margin-b-atoms, $key);
+}
+
+
+@each $key, $value in $margin-l-table {
+  %#{$key} { margin-left: $value; }
+  @include breakpoint-placeholders(#{$key}) { margin-left: $value; };
+  @include pseudoclass-placeholders(#{$key}) { margin-left: $value; };
+}
+
+$margin-l-atoms: ();
+@each $key, $value in $margin-l-table {
+  $margin-l-atoms: append($margin-l-atoms, $key);
+  $margin-l-atoms: breakpoint-variants($margin-l-atoms, $key);
+  $margin-l-atoms: pseudoclass-variants($margin-l-atoms, $key);
+}

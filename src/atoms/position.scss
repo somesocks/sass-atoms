@@ -1,0 +1,30 @@
+
+@import '../utils/map.scss';
+
+$position-prefix: 'pos-' !default;
+
+$position-table: map-prefix(
+  (
+    'static': static,
+    'fixed': fixed,
+    'absolute': absolute,
+    'relative': relative,
+    'sticky': sticky
+  ),
+  $position-prefix
+)
+ !default;
+
+ @each $key, $value in $position-table {
+  %#{$key} { position: $value; }
+  @include breakpoint-placeholders(#{$key}) { position: $value; };
+  @include pseudoclass-placeholders(#{$key}) { position: $value; };
+}
+
+$position-atoms: ();
+@each $key, $value in $position-table {
+  $position-atoms: append($position-atoms, $key);
+  $position-atoms: breakpoint-variants($position-atoms, $key);
+  $position-atoms: pseudoclass-variants($position-atoms, $key);
+}
+

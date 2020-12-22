@@ -1,62 +1,127 @@
-
-@import '../placeholders.scss';
-
-@import '../variables/colors';
-
+@import '../index.scss';
 
 
 .banner {
   @extend
     %w-p12,
     %d-inline-block,
-    %box-border
+    %box-border,
+    %p-2,
+    %p-3--md,
+    %p-4--lg,
   ;
 
-  &.-xs {
-    @extend %h-vh4,
-    %h-vh4--md,
-    %h-vh3--lg,
-    %h-vh2--xl,
-    %h-vh2--xxl;
-  }
+  // & .title {
+  //   @extend
+  //     %text-4xl
+  //   ;
+  // }
 
-  &.-sm {
-    @extend %h-vh5,
-    %h-vh4--md,
-    %h-vh4--lg,
-    %h-vh3--xl,
-    %h-vh3--xxl;
-  }
+  // & .subtitle {
+  //   @extend
+  //     %text-2xl
+  //   ;
+  // }
 
-  &.-md {
-    @extend %h-vh8,
-    %h-vh6--md,
-    %h-vh6--lg,
-    %h-vh4--xl,
-    %h-vh4--xxl;
-  }
+  // & .text {
+  //   @extend %text-md;
+  // }
 
-  &.-lg {
-    @extend %h-vh12,
-    %h-vh10--md,
-    %h-vh10--lg,
-    %h-vh8--xl,
-    %h-vh8--xxl;
-  }
+  // &.xs {
+  //   @extend %h-vh4,
+  //   %h-vh4--md,
+  //   %h-vh3--lg,
+  //   %h-vh2--xl,
+  //   ;
+  // }
 
-  &.-xl {
-    @extend %h-vh12,
-    %h-vh11--md,
-    %h-vh11--lg,
-    %h-vh10--xl,
-    %h-vh10--xxl;
-  }
+  // &.sm {
+  //   @extend %h-vh5,
+  //   %h-vh4--md,
+  //   %h-vh4--lg,
+  //   %h-vh3--xl,
+  //   ;
+  // }
 
-  @each $color-prefix, $color-table in $color-options {
-    @each $color-key, $color-value in $color-table {
-      &.-#{$color-prefix}#{$color-key} { color: $color-value; }
-      &.-bg-#{$color-prefix}#{$color-key} { background-color: $color-value; }
-      &.-border-#{$color-prefix}#{$color-key} { border-color: $color-value; }
-    }
-  }
+  // &.md {
+  //   @extend %h-vh8,
+  //   %h-vh6--md,
+  //   %h-vh6--lg,
+  //   %h-vh4--xl,
+  //   ;
+  // }
+
+  // &.lg {
+  //   @extend %h-vh12,
+  //   %h-vh10--md,
+  //   %h-vh10--lg,
+  //   %h-vh8--xl,
+  //   %p-4,
+  //   ;
+  // }
+
+  // &.xl {
+  //   @extend %h-vh12,
+  //   %h-vh11--md,
+  //   %h-vh11--lg,
+  //   %h-vh10--xl,
+  //   %p-6
+  //   ;
+  // }
+
+
 }
+
+
+$background-options: (
+  'bg-primary-100',
+  'bg-primary-200',
+  'bg-primary-300',
+  'bg-primary-400',
+  'bg-primary-500',
+  'bg-primary-600',
+  'bg-primary-700',
+  'bg-primary-800',
+  'bg-primary-900',
+  'bg-secondary-100',
+  'bg-secondary-200',
+  'bg-secondary-300',
+  'bg-secondary-400',
+  'bg-secondary-500',
+  'bg-secondary-600',
+  'bg-secondary-700',
+  'bg-secondary-800',
+  'bg-secondary-900',
+);
+
+$text-options: (
+  'text-primary-100',
+  'text-primary-200',
+  'text-primary-300',
+  'text-primary-400',
+  'text-primary-500',
+  'text-primary-600',
+  'text-primary-700',
+  'text-primary-800',
+  'text-primary-900',
+  'text-secondary-100',
+  'text-secondary-200',
+  'text-secondary-300',
+  'text-secondary-400',
+  'text-secondary-500',
+  'text-secondary-600',
+  'text-secondary-700',
+  'text-secondary-800',
+  'text-secondary-900',
+);
+
+// use the `materialize` mixin to generate real classes from placeholders
+// the second argument is a selector to prefix to the class, to add specificity
+@include materialize($background-options, '.banner');
+@include materialize($text-options, '.banner');
+
+
+// @include materialize($text-color-atoms, '.banner');
+// @include materialize($background-color-atoms, '.banner');
+// @include materialize($border-radius-atoms, '.banner');
+

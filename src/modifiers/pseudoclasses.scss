@@ -1,7 +1,22 @@
 
+$pseudoclass-table: (
+  'active': active,
+  'hover': hover,
+  'focus': focus,
+  'disabled': disabled,
+  'enabled': enabled, 
+  
+  ) !default;
+
+@function pseudoclass-variants($list, $classname) {
+  @each $key, $value in $pseudoclass-table {
+    $list: append($list, #{$classname}--#{$key})
+  }
+  @return $list
+} 
 
 @mixin pseudoclass-placeholders($classname) {
-  @each $key, $value in $pseudoclass-options {
+  @each $key, $value in $pseudoclass-table {
     %#{$classname}--#{$key}:#{$value} {
       @content;
     }    
@@ -9,7 +24,7 @@
 }
 
 @mixin pseudoclass-classes($classname) {
-  @each $key, $value in $pseudoclass-options {
+  @each $key, $value in $pseudoclass-table {
     .#{$classname}--#{$key}:#{$value} {
       @content;
     }    

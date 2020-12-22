@@ -1,0 +1,28 @@
+
+@import '../utils/map.scss';
+
+$background-clip-prefix: 'bg-clip-' !default;
+
+$background-clip-table: map-prefix(
+  (
+    'border': 'border-box',
+    'padding': 'padding-box',
+    'content': 'content-box',
+    'text': 'text',
+  ),
+  $background-clip-prefix
+) !default;
+
+
+@each $key, $value in $background-clip-table {
+  %#{$key} { background-clip: $value; }
+  @include breakpoint-placeholders(#{$key}) { background-clip: $value; };
+  @include pseudoclass-placeholders(#{$key}) { background-clip: $value; };
+}
+
+$background-clip-atoms: ();
+@each $key, $value in $background-clip-table {
+  $background-clip-atoms: append($background-clip-atoms, $key);
+  $background-clip-atoms: breakpoint-variants($background-clip-atoms, $key);
+  $background-clip-atoms: pseudoclass-variants($background-clip-atoms, $key);
+}

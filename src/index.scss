@@ -1,0 +1,9 @@
+
+@import './modifiers/index.scss';
+@import './atoms/index.scss';
+
+@mixin materialize($options, $selector:'') {
+  @each $classname in $options {
+    #{$selector}.#{$classname} { @extend %#{$classname}; }
+  }
+}

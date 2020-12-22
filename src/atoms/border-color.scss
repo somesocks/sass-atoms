@@ -1,0 +1,26 @@
+
+@import '../utils/map.scss';
+
+@import './colors.scss';
+
+$border-color-prefix: 'border-' !default;
+
+$border-color-table: map-prefix(
+  $color-table,
+  $border-color-prefix
+) !default;
+
+// @debug $border-color-table;
+
+@each $key, $value in $border-color-table {
+  %#{$key} { border-color: $value; }
+  @include breakpoint-placeholders(#{$key}) { border-color: $value; };
+  @include pseudoclass-placeholders(#{$key}) { border-color: $value; };
+}
+
+$border-color-atoms: ();
+@each $key, $value in $border-color-table {
+  $border-color-atoms: append($border-color-atoms, $key);
+  $border-color-atoms: breakpoint-variants($border-color-atoms, $key);
+  $border-color-atoms: pseudoclass-variants($border-color-atoms, $key);
+}

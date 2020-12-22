@@ -1,0 +1,28 @@
+
+@import '../utils/map.scss';
+
+$text-align-prefix: 'text-' !default;
+
+$text-align-table: map-prefix(
+  (
+    'left': left,
+    'center': center,
+    'right': right,
+    'justify': justify,
+  ),
+  $text-align-prefix
+) !default;
+
+@each $key, $value in $text-align-table {
+  %#{$key} { text-align: $value; }
+  @include breakpoint-placeholders(#{$key}) { text-align: $value; };
+  @include pseudoclass-placeholders(#{$key}) { text-align: $value; };
+}
+
+$text-align-atoms: ();
+@each $key, $value in $text-align-table {
+  $text-align-atoms: append($text-align-atoms, $key);
+  $text-align-atoms: breakpoint-variants($text-align-atoms, $key);
+  $text-align-atoms: pseudoclass-variants($text-align-atoms, $key);
+}
+

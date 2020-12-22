@@ -1,0 +1,27 @@
+
+@import '../utils/map.scss';
+
+$flex-direction-prefix: "flex-" !default;
+
+$flex-direction-table: map-prefix(
+  (
+    row: row,
+    row-reverse: row-reverse,
+    col: column,
+    col-reverse: column-reverse,
+  ),
+  $flex-direction-prefix
+) !default;
+
+@each $key, $value in $flex-direction-table {
+  %#{$key} { flex-direction: $value; }
+  @include breakpoint-placeholders(#{$key}) { flex-direction: $value; };
+  @include pseudoclass-placeholders(#{$key}) { flex-direction: $value; };
+}
+
+$flex-direction-atoms: ();
+@each $key, $value in $flex-direction-table {
+  $flex-direction-atoms: append($flex-direction-atoms, $key);
+  $flex-direction-atoms: breakpoint-variants($flex-direction-atoms, $key);
+  $flex-direction-atoms: pseudoclass-variants($flex-direction-atoms, $key);
+}

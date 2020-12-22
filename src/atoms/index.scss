@@ -1,0 +1,93 @@
+
+@import './background-clip.scss';
+@import './background-color.scss';
+@import './background-position.scss';
+@import './background-repeat.scss';
+@import './background-size.scss';
+@import './border-color.scss';
+@import './border-radius.scss';
+@import './border-style.scss';
+@import './border-width.scss';
+@import './box.scss';
+@import './clear.scss';
+@import './colors.scss';
+@import './display.scss';
+@import './flex-direction.scss';
+@import './float.scss';
+@import './font-family.scss';
+@import './font-weight.scss';
+@import './height.scss';
+@import './margin.scss';
+@import './object-fit.scss';
+@import './object-position.scss';
+@import './overflow.scss';
+@import './padding.scss';
+@import './position.scss';
+@import './text-align.scss';
+@import './text-color.scss';
+@import './text-size.scss';
+@import './visibility.scss';
+@import './width.scss';
+
+$atoms: (
+  $background-clip-atoms,
+  $background-color-atoms,
+  $background-position-atoms,
+  $background-repeat-atoms,
+  $background-size-atoms,
+  $border-color-atoms,
+  $border-radius-atoms,
+  $border-style-atoms,
+  $border-width-atoms,
+  $box-sizing-atoms,
+  $clear-atoms,
+  $display-atoms,
+  $flex-direction-atoms,
+  $float-atoms,
+  $font-family-atoms,
+  $font-weight-atoms,
+  $height-atoms,
+  $margin-atoms,
+  $object-fit-atoms,
+  $object-position-atoms,
+  $overflow-atoms,
+  $padding-atoms,
+  $position-atoms,
+  $text-align-atoms,
+  $text-color-atoms,
+  $text-size-atoms,
+  $visibility-atoms,
+  $width-atoms,
+);
+
+$atoms-table: (
+  'background-clip': $background-clip-atoms,
+  'background-color': $background-color-atoms,
+  'background-position': $background-position-atoms,
+  'background-repeat': $background-repeat-atoms,
+  'background-size': $background-size-atoms,
+  'border-color': $border-color-atoms,
+  'border-radius': $border-radius-atoms,
+  'border-style': $border-style-atoms,
+  'border-width': $border-width-atoms,
+  'box-sizing': $box-sizing-atoms,
+  'clear': $clear-atoms,
+  'display': $display-atoms,
+  'flex-direction': $flex-direction-atoms,
+  'float': $float-atoms,
+  'font-family': $font-family-atoms,
+  'font-weight': $font-weight-atoms,
+  'font-height': $height-atoms,
+  'margin': $margin-atoms,
+  'object-fit': $object-fit-atoms,
+  'object-position': $object-position-atoms,
+  'overflow': $overflow-atoms,
+  'padding': $padding-atoms,
+  'position': $position-atoms,
+  'text-align': $text-align-atoms,
+  'text-color': $text-color-atoms,
+  'text-size': $text-size-atoms,
+  'visibility': $visibility-atoms,
+  'width': $width-atoms,
+);
+

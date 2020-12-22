@@ -1,0 +1,91 @@
+
+@import '../utils/map.scss';
+
+$height-prefix: 'h-' !default;
+$min-height-prefix: 'hmin-' !default;
+$max-height-prefix: 'hmax-' !default;
+
+$height-table-base: (
+  '0': 0,
+  'vh0': 0vh,
+  'vh1': 8.3333vh,
+  'vh2': 16.6667vh,
+  'vh3': 25vh,
+  'vh4': 33.3333vh,
+  'vh5': 41.6667vh,
+  'vh6': 50vh,
+  'vh7': 58.3333vh,
+  'vh8': 66.6667vh,
+  'vh9': 75vh,
+  'vh10': 83.3333vh,
+  'vh11': 91.6667vh,
+  'vh12': 100vh,
+
+  'p0': 0%,
+  'p1': 8.3333%,
+  'p2': 16.6667%,
+  'p3': 25%,
+  'p4': 33.3333%,
+  'p5': 41.6667%,
+  'p6': 50%,
+  'p7': 58.3333%,
+  'p8': 66.6667%,
+  'p9': 75%,
+  'p10': 83.3333%,
+  'p11': 91.6667%,
+  'p12': 100%,
+) !default;
+
+$height-table: map-prefix(
+  $height-table-base,
+  $height-prefix
+) !default;
+
+$min-height-table: map-prefix(
+  $height-table-base,
+  $min-height-prefix
+) !default;
+
+$max-height-table: map-prefix(
+  $height-table-base,
+  $max-height-prefix
+) !default;
+
+@each $key, $value in $height-table {
+  %#{$key} { height: $value; }
+  @include breakpoint-placeholders(#{$key}) { height: $value; };
+  @include pseudoclass-placeholders(#{$key}) { height: $value; };
+}
+
+$height-atoms: ();
+@each $key, $value in $height-table {
+  $height-atoms: append($height-atoms, $key);
+  $height-atoms: breakpoint-variants($height-atoms, $key);
+  $height-atoms: pseudoclass-variants($height-atoms, $key);
+}
+
+@each $key, $value in $min-height-table {
+  %#{$key} { min-height: $value; }
+  @include breakpoint-placeholders(#{$key}) { min-height: $value; };
+  @include pseudoclass-placeholders(#{$key}) { min-height: $value; };
+}
+
+$min-height-atoms: ();
+@each $key, $value in $min-height-table {
+  $min-height-atoms: append($min-height-atoms, $key);
+  $min-height-atoms: breakpoint-variants($min-height-atoms, $key);
+  $min-height-atoms: pseudoclass-variants($min-height-atoms, $key);
+}
+
+@each $key, $value in $max-height-table {
+  %#{$key} { max-height: $value; }
+  @include breakpoint-placeholders(#{$key}) { max-height: $value; };
+  @include pseudoclass-placeholders(#{$key}) { max-height: $value; };
+}
+
+$max-height-atoms: ();
+@each $key, $value in $max-height-table {
+  $max-height-atoms: append($max-height-atoms, $key);
+  $max-height-atoms: breakpoint-variants($max-height-atoms, $key);
+  $max-height-atoms: pseudoclass-variants($max-height-atoms, $key);
+}

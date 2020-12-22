@@ -1,0 +1,26 @@
+
+@import '../utils/map.scss';
+
+$float-prefix: 'float-' !default;
+
+$float-table: map-prefix(
+  (
+    'left': left,
+    'right': right,
+    'none': none,
+  ),
+  $float-prefix
+) !default;
+
+@each $key, $value in $float-table {
+  %#{$key} { float: $value; }
+  @include breakpoint-placeholders(#{$key}) { float: $value; };
+  @include pseudoclass-placeholders(#{$key}) { float: $value; };
+}
+
+$float-atoms: ();
+@each $key, $value in $float-table {
+  $float-atoms: append($float-atoms, $key);
+  $float-atoms: breakpoint-variants($float-atoms, $key);
+  $float-atoms: pseudoclass-variants($float-atoms, $key);
+}

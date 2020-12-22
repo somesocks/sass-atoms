@@ -1,0 +1,28 @@
+
+@import '../utils/map.scss';
+
+$border-style-prefix: 'border-' !default;
+
+$border-style-table: map-prefix(
+  (
+    'solid': solid,
+    'dashed': dashed,
+    'dotted': dotted,
+    'double': double,
+    'none': none,
+  ),
+  $border-style-prefix
+) !default;
+
+@each $key, $value in $border-style-table {
+  %#{$key} { border-style: $value; }
+  @include breakpoint-placeholders(#{$key}) { border-style: $value; };
+  @include pseudoclass-placeholders(#{$key}) { border-style: $value; };
+}
+
+$border-style-atoms: ();
+@each $key, $value in $border-style-table {
+  $border-style-atoms: append($border-style-atoms, $key);
+  $border-style-atoms: breakpoint-variants($border-style-atoms, $key);
+  $border-style-atoms: pseudoclass-variants($border-style-atoms, $key);
+}

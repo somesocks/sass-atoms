@@ -1,0 +1,31 @@
+
+@import '../utils/map.scss';
+
+$border-width-prefix: 'border-' !default;
+
+$border-width-table: map-prefix(
+  (
+    '0': 0,
+    '1': 1px,
+    '2': 2px,
+    '3': 3px,
+    '4': 4px,
+    '5': 5px,
+    '6': 6px,
+  ),
+  $border-width-prefix
+) !default;
+
+
+@each $key, $value in $border-width-table {
+  %#{$key} { border-width: $value; }
+  @include breakpoint-placeholders(#{$key}) { border-width: $value; };
+  @include pseudoclass-placeholders(#{$key}) { border-width: $value; };
+}
+
+$border-width-atoms: ();
+@each $key, $value in $border-width-table {
+  $border-width-atoms: append($border-width-atoms, $key);
+  $border-width-atoms: breakpoint-variants($border-width-atoms, $key);
+  $border-width-atoms: pseudoclass-variants($border-width-atoms, $key);
+}

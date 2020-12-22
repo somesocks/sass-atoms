@@ -1,0 +1,26 @@
+
+@import '../utils/map.scss';
+
+@import './colors.scss';
+
+$text-color-prefix: 'text-' !default;
+
+$text-color-table: map-prefix(
+  $color-table,
+  $text-color-prefix
+) !default;
+
+// @debug $text-color-table;
+
+@each $key, $value in $text-color-table {
+  %#{$key} { color: $value; }
+  @include breakpoint-placeholders(#{$key}) { color: $value; };
+  @include pseudoclass-placeholders(#{$key}) { color: $value; };
+}
+
+$text-color-atoms: ();
+@each $key, $value in $text-color-table {
+  $text-color-atoms: append($text-color-atoms, $key);
+  $text-color-atoms: breakpoint-variants($text-color-atoms, $key);
+  $text-color-atoms: pseudoclass-variants($text-color-atoms, $key);
+}

@@ -1,0 +1,27 @@
+@import '../utils/map.scss';
+
+@import './colors.scss';
+
+$background-color-prefix: 'bg-' !default;
+
+$background-color-table: map-prefix(
+  $color-table,
+  $background-color-prefix
+) !default;
+
+// @debug $background-color-table;
+
+@each $key, $value in $background-color-table {
+  %#{$key} { background-color: $value; }
+  @include breakpoint-placeholders(#{$key}) { background-color: $value; };
+  @include pseudoclass-placeholders(#{$key}) { background-color: $value; };
+}
+
+$background-color-atoms: ();
+@each $key, $value in $background-color-table {
+  $background-color-atoms: append($background-color-atoms, $key);
+  $background-color-atoms: breakpoint-variants($background-color-atoms, $key);
+  $background-color-atoms: pseudoclass-variants($background-color-atoms, $key);
+}
+
+

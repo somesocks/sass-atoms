@@ -1,0 +1,25 @@
+
+@import '../utils/map.scss';
+
+$visibility-prefix: 'v-' !default;
+
+$visibility-table: map-prefix(
+  (
+    'visible': visible,
+    'hidden': hidden
+  ),
+  $visibility-prefix
+) !default;
+
+@each $key, $value in $visibility-table {
+  %#{$key} { visibility: $value; }
+  @include breakpoint-placeholders(#{$key}) { visibility: $value; };
+  @include pseudoclass-placeholders(#{$key}) { visibility: $value; };
+}
+
+$visibility-atoms: ();
+@each $key, $value in $visibility-table {
+  $visibility-atoms: append($visibility-atoms, $key);
+  $visibility-atoms: breakpoint-variants($visibility-atoms, $key);
+  $visibility-atoms: pseudoclass-variants($visibility-atoms, $key);
+}

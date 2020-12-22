@@ -1,0 +1,25 @@
+
+@import '../utils/map.scss';
+
+$box-sizing-prefix: 'box-' !default;
+
+$box-sizing-table: map-prefix(
+  (
+    'border': 'border-box',
+    'content': 'content-box',
+  ),
+  $box-sizing-prefix
+) !default;
+
+@each $key, $value in $box-sizing-table {
+  %#{$key} { box-sizing: #{$value}; }
+  @include breakpoint-placeholders(#{$key}) { box-sizing: #{$value}; };
+  @include pseudoclass-placeholders(#{$key}) { box-sizing: #{$value}; };
+}
+
+$box-sizing-atoms: ();
+@each $key, $value in $box-sizing-table {
+  $box-sizing-atoms: append($box-sizing-atoms, $key);
+  $box-sizing-atoms: breakpoint-variants($box-sizing-atoms, $key);
+  $box-sizing-atoms: pseudoclass-variants($box-sizing-atoms, $key);
+}

@@ -1,0 +1,71 @@
+
+
+@import '../utils/map.scss';
+
+$overflow-prefix: 'overflow-' !default;
+$overflow-x-prefix: 'overflow-x-' !default;
+$overflow-y-prefix: 'overflow-y-' !default;
+
+$overflow-table-base: (
+  'auto': auto,
+  'hidden': hidden,
+  'visible': visible,
+  'scroll': scroll,
+) !default;
+
+$overflow-table: map-prefix(
+  $overflow-table-base,
+  $overflow-prefix
+) !default;
+
+$overflow-x-table: map-prefix(
+  $overflow-table-base,
+  $overflow-x-prefix
+) !default;
+
+$overflow-y-table: map-prefix(
+  $overflow-table-base,
+  $overflow-y-prefix
+) !default;
+
+@each $key, $value in $overflow-table {
+  %#{$key} { overflow: $value; }
+  @include breakpoint-placeholders(#{$key}) { overflow: $value; };
+  @include pseudoclass-placeholders(#{$key}) { overflow: $value; };
+}
+
+$overflow-atoms: ();
+@each $key, $value in $overflow-table {
+  $overflow-atoms: append($overflow-atoms, $key);
+  $overflow-atoms: breakpoint-variants($overflow-atoms, $key);
+  $overflow-atoms: pseudoclass-variants($overflow-atoms, $key);
+}
+
+
+@each $key, $value in $overflow-x-table {
+  %#{$key} { overflow-x: $value; }
+  @include breakpoint-placeholders(#{$key}) { overflow-x: $value; };
+  @include pseudoclass-placeholders(#{$key}) { overflow-x: $value; };
+}
+
+$overflow-x-atoms: ();
+@each $key, $value in $overflow-x-table {
+  $overflow-x-atoms: append($overflow-x-atoms, $key);
+  $overflow-x-atoms: breakpoint-variants($overflow-x-atoms, $key);
+  $overflow-x-atoms: pseudoclass-variants($overflow-x-atoms, $key);
+}
+
+
+@each $key, $value in $overflow-y-table {
+  %#{$key} { overflow-y: $value; }
+  @include breakpoint-placeholders(#{$key}) { overflow-y: $value; };
+  @include pseudoclass-placeholders(#{$key}) { overflow-y: $value; };
+}
+
+$overflow-y-atoms: ();
+@each $key, $value in $overflow-y-table {
+  $overflow-y-atoms: append($overflow-y-atoms, $key);
+  $overflow-y-atoms: breakpoint-variants($overflow-y-atoms, $key);
+  $overflow-y-atoms: pseudoclass-variants($overflow-y-atoms, $key);
+}
+

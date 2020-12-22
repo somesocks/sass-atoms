@@ -1,0 +1,27 @@
+
+@import '../utils/map.scss';
+
+$font-family-prefix: "font-" !default;
+
+$font-family-table: map-prefix(
+  (
+    "sans": "ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\"",
+    "serif": "ui-serif, Georgia, Cambria, \"Times New Roman\", Times, serif",
+    "mono": "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, \"Liberation Mono\", \"Courier New\", monospace",
+  ),
+  $font-family-prefix
+) !default;
+
+
+@each $key, $value in $font-family-table {
+  %#{$key} { font-family: $value; }
+  @include breakpoint-placeholders(#{$key}) { font-family: $value; };
+  @include pseudoclass-placeholders(#{$key}) { font-family: $value; };
+}
+
+$font-family-atoms: ();
+@each $key, $value in $font-family-table {
+  $font-family-atoms: append($font-family-atoms, $key);
+  $font-family-atoms: breakpoint-variants($font-family-atoms, $key);
+  $font-family-atoms: pseudoclass-variants($font-family-atoms, $key);
+}

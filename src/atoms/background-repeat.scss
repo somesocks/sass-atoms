@@ -1,0 +1,27 @@
+
+@import '../utils/map.scss';
+
+$background-repeat-prefix: 'bg-' !default;
+
+$background-repeat-table: map-prefix(
+  (
+    'repeat': repeat,
+    'no-repeat': no-repeat,
+    'repeat-x': repeat-x,
+    'repeat-y': repeat-y,
+  ),
+  $background-repeat-prefix
+) !default;
+
+@each $key, $value in $background-repeat-table {
+  %#{$key} { background-repeat: $value; }
+  @include breakpoint-placeholders(#{$key}) { background-repeat: $value; };
+  @include pseudoclass-placeholders(#{$key}) { background-repeat: $value; };
+}
+
+$background-repeat-atoms: ();
+@each $key, $value in $background-repeat-table {
+  $background-repeat-atoms: append($background-repeat-atoms, $key);
+  $background-repeat-atoms: breakpoint-variants($background-repeat-atoms, $key);
+  $background-repeat-atoms: pseudoclass-variants($background-repeat-atoms, $key);
+}

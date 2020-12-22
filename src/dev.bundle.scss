@@ -1,2 +1,11 @@
 
-@import './classes.scss';
+@import './index.scss';
+
+// @debug $atoms-table;
+
+@each $options in $atoms {
+  @include materialize($options);
+}
+
+@import './reset.scss';
+

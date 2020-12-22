@@ -1,0 +1,27 @@
+
+@import '../utils/map.scss';
+
+$clear-prefix: 'clear-' !default;
+
+$clear-table: map-prefix(
+  (
+    'left': left,
+    'right': right,
+    'both': both,
+    'none': none,
+  ),
+  $clear-prefix
+) !default;
+
+@each $key, $value in $clear-table {
+  %#{$key} { clear: $value; }
+  @include breakpoint-placeholders(#{$key}) { clear: $value; };
+  @include pseudoclass-placeholders(#{$key}) { clear: $value; };
+}
+
+$clear-atoms: ();
+@each $key, $value in $clear-table {
+  $clear-atoms: append($clear-atoms, $key);
+  $clear-atoms: breakpoint-variants($clear-atoms, $key);
+  $clear-atoms: pseudoclass-variants($clear-atoms, $key);
+}

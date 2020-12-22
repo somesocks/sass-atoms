@@ -1,0 +1,32 @@
+
+@import '../utils/map.scss';
+
+$background-position-prefix: 'bg-' !default;
+
+$background-position-table: map-prefix(
+  (
+    'top-left': top left,
+    'top': top,
+    'top-right': top right,
+    'left': left,
+    'center': center,
+    'right': right,
+    'bottom-left': bottom left,
+    'bottom': bottom,
+    'bottom-right': bottom right,
+  ),
+  $background-position-prefix
+) !default;
+
+@each $key, $value in $background-position-table {
+  %#{$key} { background-position: $value; }
+  @include breakpoint-placeholders(#{$key}) { background-position: $value; };
+  @include pseudoclass-placeholders(#{$key}) { background-position: $value; };
+}
+
+$background-position-atoms: ();
+@each $key, $value in $background-position-table {
+  $background-position-atoms: append($background-position-atoms, $key);
+  $background-position-atoms: breakpoint-variants($background-position-atoms, $key);
+  $background-position-atoms: pseudoclass-variants($background-position-atoms, $key);
+}

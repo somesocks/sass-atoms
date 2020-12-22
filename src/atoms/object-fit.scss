@@ -1,0 +1,28 @@
+
+@import '../utils/map.scss';
+
+$object-fit-prefix: 'obj-' !default;
+
+$object-fit-table: map-prefix(
+  (
+    'contain': contain,
+    'cover': cover,
+    'fill': fill,
+    'none': none,
+    'scale-down': scale-down,
+  ),
+  $object-fit-prefix
+) !default;
+
+@each $key, $value in $object-fit-table {
+  %#{$key} { object-fit: $value; }
+  @include breakpoint-placeholders(#{$key}) { object-fit: $value; };
+  @include pseudoclass-placeholders(#{$key}) { object-fit: $value; };
+}
+
+$object-fit-atoms: ();
+@each $key, $value in $object-fit-table {
+  $object-fit-atoms: append($object-fit-atoms, $key);
+  $object-fit-atoms: breakpoint-variants($object-fit-atoms, $key);
+  $object-fit-atoms: pseudoclass-variants($object-fit-atoms, $key);
+}

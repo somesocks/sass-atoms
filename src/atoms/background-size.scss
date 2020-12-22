@@ -1,0 +1,26 @@
+
+@import '../utils/map.scss';
+
+$background-size-prefix: 'bg-' !default;
+
+$background-size-table: map-prefix(
+  (
+    'auto': auto,
+    'cover': cover,
+    'contain': contain,
+  ),
+  $background-size-prefix  
+) !default;
+
+@each $key, $value in $background-size-table {
+  %#{$key} { background-size: $value; }
+  @include breakpoint-placeholders(#{$key}) { background-size: $value; };
+  @include pseudoclass-placeholders(#{$key}) { background-size: $value; };
+}
+
+$background-size-atoms: ();
+@each $key, $value in $background-size-table {
+  $background-size-atoms: append($background-size-atoms, $key);
+  $background-size-atoms: breakpoint-variants($background-size-atoms, $key);
+  $background-size-atoms: pseudoclass-variants($background-size-atoms, $key);
+}

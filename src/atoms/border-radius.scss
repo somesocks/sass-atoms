@@ -1,0 +1,31 @@
+
+@import '../utils/map.scss';
+
+$border-radius-prefix: 'round-' !default;
+
+$border-radius-table: map-prefix(
+  (
+    '0': 0,
+    '1': 0.25rem,
+    '2': 0.5rem,
+    '3': 0.75rem,
+    '4': 1rem,
+    '5': 1.25rem,
+    '6': 1.5rem,
+    'full': 9999px,
+  ),
+  $border-radius-prefix
+) !default;
+
+@each $key, $value in $border-radius-table {
+  %#{$key} { border-radius: $value; }
+  @include breakpoint-placeholders(#{$key}) { border-radius: $value; };
+  @include pseudoclass-placeholders(#{$key}) { border-radius: $value; };
+}
+
+$border-radius-atoms: ();
+@each $key, $value in $border-radius-table {
+  $border-radius-atoms: append($border-radius-atoms, $key);
+  $border-radius-atoms: breakpoint-variants($border-radius-atoms, $key);
+  $border-radius-atoms: pseudoclass-variants($border-radius-atoms, $key);
+}

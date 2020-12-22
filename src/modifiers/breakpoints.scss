@@ -1,5 +1,13 @@
 
 
+$breakpoint-table: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  // xxl: 1400px,
+) !default;
+
 @function _specificity($index) {
   $result: "";
   @for $_ from 1 through $index {
@@ -8,9 +16,17 @@
   @return $result;
 }
 
+@function breakpoint-variants($list, $classname) {
+  @each $key, $value in $breakpoint-table {
+    $list: append($list, #{$classname}--#{$key})
+  }
+  @return $list
+} 
+
 @mixin breakpoint-placeholders($classname) {
-  @each $key, $value in $breakpoint-options {
-    $index: index(($breakpoint-options), ($key $value));
+  @each $key, $value in $breakpoint-table {
+    $index: index(($breakpoint-table), ($key $value));
+
     %#{$classname}--#{$key} {
       @media (min-width: $value) {
         &#{_specificity($index)} {
@@ -22,7 +38,7 @@
 }
 
 @mixin breakpoint-classes($classname) {
-  @each $key, $value in $breakpoint-options {
+  @each $key, $value in $breakpoint-table {
     .#{$classname}--#{$key} {
       @media (min-width: $value) {
         @content;
