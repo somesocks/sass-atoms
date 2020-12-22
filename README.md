@@ -233,6 +233,11 @@ You can also use this to add all default atoms to a class, but this will result 
   @include materialize($background-color-atoms, '.banner');
 ```
 
+## development mode
+
+if you want to test the different classes without rebuilding your sass, `sass-atoms` ships with a dev css bundle that includes _all_ utlity classes as materialized classes, so you can add them directly to your html.  Just load the bundle `sass-atoms/dev.css`.
+
+
 ## atoms reference
 
 ### `$align-content-atoms`
