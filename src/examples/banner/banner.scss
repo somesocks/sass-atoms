@@ -4,7 +4,7 @@
 .banner {
   @extend
     %w-p12,
-    %d-inline-block,
+    %d-block,
     %box-border,
     %p-2,
     %p-3--md,
@@ -52,7 +52,7 @@
   }
 
   &.lg {
-    @extend %h-vh12,
+    @extend %h-vh11,
     %h-vh10--md,
     %h-vh10--lg,
     %h-vh8--xl,
@@ -85,5 +85,6 @@
 @include materialize($background-color-atoms, '.banner');
 @include materialize($text-color-atoms, '.banner');
 @include materialize($border-radius-atoms, '.banner');
+@include materialize($padding-atoms, '.banner');
 
 
