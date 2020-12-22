@@ -54,38 +54,47 @@ $max-width-table: map-prefix(
 @each $key, $value in $width-table {
   %#{$key} { width: $value; }
   @include breakpoint-placeholders(#{$key}) { width: $value; };
-  @include pseudoclass-placeholders(#{$key}) { width: $value; };
+  @include state-placeholders(#{$key}) { width: $value; };
 }
 
 $width-atoms: ();
+$width-atoms--breakpoints: ();
+$width-atoms--states: ();
+
 @each $key, $value in $width-table {
   $width-atoms: append($width-atoms, $key);
-  $width-atoms: breakpoint-variants($width-atoms, $key);
-  $width-atoms: pseudoclass-variants($width-atoms, $key);
+  $width-atoms--breakpoints: breakpoint-variants($width-atoms--breakpoints, $key);
+  $width-atoms--states: state-variants($width-atoms--states, $key);
 }
 
 @each $key, $value in $min-width-table {
   %#{$key} { min-width: $value; }
   @include breakpoint-placeholders(#{$key}) { min-width: $value; };
-  @include pseudoclass-placeholders(#{$key}) { min-width: $value; };
+  @include state-placeholders(#{$key}) { min-width: $value; };
 }
 
 $min-width-atoms: ();
+$min-width-atoms--breakpoints: ();
+$min-width-atoms--states: ();
+
 @each $key, $value in $min-width-table {
   $min-width-atoms: append($min-width-atoms, $key);
-  $min-width-atoms: breakpoint-variants($min-width-atoms, $key);
-  $min-width-atoms: pseudoclass-variants($min-width-atoms, $key);
+  $min-width-atoms--breakpoints: breakpoint-variants($min-width-atoms--breakpoints, $key);
+  $min-width-atoms--states: state-variants($min-width-atoms--states, $key);
 }
 
 @each $key, $value in $max-width-table {
   %#{$key} { max-width: $value; }
   @include breakpoint-placeholders(#{$key}) { max-width: $value; };
-  @include pseudoclass-placeholders(#{$key}) { max-width: $value; };
+  @include state-placeholders(#{$key}) { max-width: $value; };
 }
 
 $max-width-atoms: ();
+$max-width-atoms--breakpoints: ();
+$max-width-atoms--states: ();
+
 @each $key, $value in $max-width-table {
   $max-width-atoms: append($max-width-atoms, $key);
-  $max-width-atoms: breakpoint-variants($max-width-atoms, $key);
-  $max-width-atoms: pseudoclass-variants($max-width-atoms, $key);
+  $max-width-atoms--breakpoints: breakpoint-variants($max-width-atoms--breakpoints, $key);
+  $max-width-atoms--states: state-variants($max-width-atoms--states, $key);
 }

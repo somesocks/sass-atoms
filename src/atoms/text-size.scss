@@ -22,12 +22,15 @@ $text-size-table: map-prefix(
 @each $key, $value in $text-size-table {
   %#{$key} { font-size: $value; }
   @include breakpoint-placeholders(#{$key}) { font-size: $value; };
-  @include pseudoclass-placeholders(#{$key}) { font-size: $value; };
+  @include state-placeholders(#{$key}) { font-size: $value; };
 }
 
 $text-size-atoms: ();
+$text-size-atoms--breakpoints: ();
+$text-size-atoms--states: ();
+
 @each $key, $value in $text-size-table {
   $text-size-atoms: append($text-size-atoms, $key);
-  $text-size-atoms: breakpoint-variants($text-size-atoms, $key);
-  $text-size-atoms: pseudoclass-variants($text-size-atoms, $key);
+  $text-size-atoms--breakpoints: breakpoint-variants($text-size-atoms--breakpoints, $key);
+  $text-size-atoms--states: state-variants($text-size-atoms--states, $key);
 }

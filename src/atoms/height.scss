@@ -54,38 +54,47 @@ $max-height-table: map-prefix(
 @each $key, $value in $height-table {
   %#{$key} { height: $value; }
   @include breakpoint-placeholders(#{$key}) { height: $value; };
-  @include pseudoclass-placeholders(#{$key}) { height: $value; };
+  @include state-placeholders(#{$key}) { height: $value; };
 }
 
 $height-atoms: ();
+$height-atoms--breakpoints: ();
+$height-atoms--states: ();
+
 @each $key, $value in $height-table {
   $height-atoms: append($height-atoms, $key);
-  $height-atoms: breakpoint-variants($height-atoms, $key);
-  $height-atoms: pseudoclass-variants($height-atoms, $key);
+  $height-atoms--breakpoints: breakpoint-variants($height-atoms--breakpoints, $key);
+  $height-atoms--states: state-variants($height-atoms--states, $key);
 }
 
 @each $key, $value in $min-height-table {
   %#{$key} { min-height: $value; }
   @include breakpoint-placeholders(#{$key}) { min-height: $value; };
-  @include pseudoclass-placeholders(#{$key}) { min-height: $value; };
+  @include state-placeholders(#{$key}) { min-height: $value; };
 }
 
 $min-height-atoms: ();
+$min-height-atoms--breakpoints: ();
+$min-height-atoms--states: ();
+
 @each $key, $value in $min-height-table {
   $min-height-atoms: append($min-height-atoms, $key);
-  $min-height-atoms: breakpoint-variants($min-height-atoms, $key);
-  $min-height-atoms: pseudoclass-variants($min-height-atoms, $key);
+  $min-height-atoms--breakpoints: breakpoint-variants($min-height-atoms--breakpoints, $key);
+  $min-height-atoms--states: state-variants($min-height-atoms--states, $key);
 }
 
 @each $key, $value in $max-height-table {
   %#{$key} { max-height: $value; }
   @include breakpoint-placeholders(#{$key}) { max-height: $value; };
-  @include pseudoclass-placeholders(#{$key}) { max-height: $value; };
+  @include state-placeholders(#{$key}) { max-height: $value; };
 }
 
 $max-height-atoms: ();
+$max-height-atoms--breakpoints: ();
+$max-height-atoms--states: ();
+
 @each $key, $value in $max-height-table {
   $max-height-atoms: append($max-height-atoms, $key);
-  $max-height-atoms: breakpoint-variants($max-height-atoms, $key);
-  $max-height-atoms: pseudoclass-variants($max-height-atoms, $key);
+  $max-height-atoms--breakpoints: breakpoint-variants($max-height-atoms--breakpoints, $key);
+  $max-height-atoms--states: state-variants($max-height-atoms--states, $key);
 }

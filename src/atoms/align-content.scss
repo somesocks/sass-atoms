@@ -1,0 +1,32 @@
+
+@import '../utils/map.scss';
+
+$align-content-prefix: 'align-content-' !default;
+
+$align-content-table: map-prefix(
+  (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around,
+    'evenly': space-evenly,
+  ),
+  $align-content-prefix
+) !default;
+
+@each $key, $value in $align-content-table {
+  %#{$key} { align-content: $value; }
+  @include breakpoint-placeholders(#{$key}) { align-content: $value; };
+  @include state-placeholders(#{$key}) { align-content: $value; };
+}
+
+$align-content-atoms: ();
+$align-content-atoms--breakpoints: ();
+$align-content-atoms--states: ();
+
+@each $key, $value in $align-content-table {
+  $align-content-atoms: append($align-content-atoms, $key);
+  $align-content-atoms--breakpoints: breakpoint-variants($align-content-atoms--breakpoints, $key);
+  $align-content-atoms--states: state-variants($align-content-atoms--states, $key);
+}

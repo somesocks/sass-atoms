@@ -16,12 +16,15 @@ $clear-table: map-prefix(
 @each $key, $value in $clear-table {
   %#{$key} { clear: $value; }
   @include breakpoint-placeholders(#{$key}) { clear: $value; };
-  @include pseudoclass-placeholders(#{$key}) { clear: $value; };
+  @include state-placeholders(#{$key}) { clear: $value; };
 }
 
 $clear-atoms: ();
+$clear-atoms--breakpoints: ();
+$clear-atoms--states: ();
+
 @each $key, $value in $clear-table {
   $clear-atoms: append($clear-atoms, $key);
-  $clear-atoms: breakpoint-variants($clear-atoms, $key);
-  $clear-atoms: pseudoclass-variants($clear-atoms, $key);
+  $clear-atoms--breakpoints: breakpoint-variants($clear-atoms--breakpoints, $key);
+  $clear-atoms--states: state-variants($clear-atoms--states, $key);
 }

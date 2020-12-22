@@ -16,13 +16,15 @@ $text-align-table: map-prefix(
 @each $key, $value in $text-align-table {
   %#{$key} { text-align: $value; }
   @include breakpoint-placeholders(#{$key}) { text-align: $value; };
-  @include pseudoclass-placeholders(#{$key}) { text-align: $value; };
+  @include state-placeholders(#{$key}) { text-align: $value; };
 }
 
 $text-align-atoms: ();
+$text-align-atoms--breakpoints: ();
+$text-align-atoms--states: ();
+
 @each $key, $value in $text-align-table {
   $text-align-atoms: append($text-align-atoms, $key);
-  $text-align-atoms: breakpoint-variants($text-align-atoms, $key);
-  $text-align-atoms: pseudoclass-variants($text-align-atoms, $key);
+  $text-align-atoms--breakpoints: breakpoint-variants($text-align-atoms--breakpoints, $key);
+  $text-align-atoms--states: state-variants($text-align-atoms--states, $key);
 }
-

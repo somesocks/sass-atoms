@@ -20,12 +20,15 @@ $border-radius-table: map-prefix(
 @each $key, $value in $border-radius-table {
   %#{$key} { border-radius: $value; }
   @include breakpoint-placeholders(#{$key}) { border-radius: $value; };
-  @include pseudoclass-placeholders(#{$key}) { border-radius: $value; };
+  @include state-placeholders(#{$key}) { border-radius: $value; };
 }
 
 $border-radius-atoms: ();
+$border-radius-atoms--breakpoints: ();
+$border-radius-atoms--states: ();
+
 @each $key, $value in $border-radius-table {
   $border-radius-atoms: append($border-radius-atoms, $key);
-  $border-radius-atoms: breakpoint-variants($border-radius-atoms, $key);
-  $border-radius-atoms: pseudoclass-variants($border-radius-atoms, $key);
+  $border-radius-atoms--breakpoints: breakpoint-variants($border-radius-atoms--breakpoints, $key);
+  $border-radius-atoms--states: state-variants($border-radius-atoms--states, $key);
 }

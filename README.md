@@ -214,7 +214,7 @@ Will compile to:
 }
 ```
 
-You can also use this to add all default atoms to a class, but this will result in a large output:
+You can also use this to add all default atoms to a class, but this will result in a larger output:
 
 ```
   .banner {
@@ -232,3 +232,225 @@ You can also use this to add all default atoms to a class, but this will result 
   // the second argument is a selector to prefix to the class, to add specificity
   @include materialize($background-color-atoms, '.banner');
 ```
+
+## atoms reference
+
+### `$align-content-atoms`
+### `$align-content-atoms--breakpoints`
+### `$align-content-atoms--states`
+
+### `$align-items-atoms`
+### `$align-items-atoms--breakpoints`
+### `$align-items-atoms--states`
+
+### `$align-self-atoms`
+### `$align-self-atoms--breakpoints`
+### `$align-self-atoms--states`
+
+### `$background-clip-atoms`
+### `$background-clip-atoms--breakpoints`
+### `$background-clip-atoms--states`
+
+### `$background-color-atoms`
+### `$background-color-atoms--breakpoints`
+### `$background-color-atoms--states`
+
+### `$background-position-atoms`
+### `$background-position-atoms--breakpoints`
+### `$background-position-atoms--states`
+
+### `$background-repeat-atoms`
+### `$background-repeat-atoms--breakpoints`
+### `$background-repeat-atoms--states`
+
+### `$background-size-atoms`
+### `$background-size-atoms--breakpoints`
+### `$background-size-atoms--states`
+
+### `$border-color-atoms`
+### `$border-color-atoms--breakpoints`
+### `$border-color-atoms--states`
+
+### `$border-radius-atoms`
+### `$border-radius-atoms--breakpoints`
+### `$border-radius-atoms--states`
+
+### `$border-style-atoms`
+### `$border-style-atoms--breakpoints`
+### `$border-style-atoms--states`
+
+### `$border-width-atoms`
+### `$border-width-atoms--breakpoints`
+### `$border-width-atoms--states`
+
+### `$box-sizing-atoms`
+### `$box-sizing-atoms--breakpoints`
+### `$box-sizing-atoms--states`
+
+### `$clear-atoms`
+### `$clear-atoms--breakpoints`
+### `$clear-atoms--states`
+
+### `$display-atoms`
+### `$display-atoms--breakpoints`
+### `$display-atoms--states`
+
+### `$flex-direction-atoms`
+### `$flex-direction-atoms--breakpoints`
+### `$flex-direction-atoms--states`
+
+### `$flex-grow-atoms`
+### `$flex-grow-atoms--breakpoints`
+### `$flex-grow-atoms--states`
+
+### `$flex-shrink-atoms`
+### `$flex-shrink-atoms--breakpoints`
+### `$flex-shrink-atoms--states`
+
+### `$flex-wrap-atoms`
+### `$flex-wrap-atoms--breakpoints`
+### `$flex-wrap-atoms--states`
+
+### `$float-atoms`
+### `$float-atoms--breakpoints`
+### `$float-atoms--states`
+
+### `$font-family-atoms`
+### `$font-family-atoms--breakpoints`
+### `$font-family-atoms--states`
+
+### `$font-weight-atoms`
+### `$font-weight-atoms--breakpoints`
+### `$font-weight-atoms--states`
+
+### `$height-atoms`
+### `$height-atoms--breakpoints`
+### `$height-atoms--states`
+
+### `$min-height-atoms`
+### `$min-height-atoms--breakpoints`
+### `$min-height-atoms--states`
+
+### `$max-height-atoms`
+### `$max-height-atoms--breakpoints`
+### `$max-height-atoms--states`
+
+### `$justify-content-atoms`
+### `$justify-content-atoms--breakpoints`
+### `$justify-content-atoms--states`
+
+### `$justify-items-atoms`
+### `$justify-items-atoms--breakpoints`
+### `$justify-items-atoms`
+
+### `$justify-self-atoms`
+### `$justify-self-atoms--breakpoints`
+### `$justify-self-atoms--states`
+
+### `$margin-atoms`
+### `$margin-atoms--breakpoints`
+### `$margin-atoms--states`
+
+### `$margin-x-atoms`
+### `$margin-x-atoms--breakpoints`
+### `$margin-x-atoms--states`
+
+### `$margin-y-atoms`
+### `$margin-y-atoms--breakpoints`
+### `$margin-y-atoms--states`
+
+### `$margin-t-atoms`
+### `$margin-t-atoms--breakpoints`
+### `$margin-t-atoms--states`
+
+### `$margin-r-atoms`
+### `$margin-r-atoms--breakpoints`
+### `$margin-r-atoms--states`
+
+### `$margin-b-atoms`
+### `$margin-b-atoms--breakpoints`
+### `$margin-b-atoms--states`
+
+### `$margin-l-atoms`
+### `$margin-l-atoms--breakpoints`
+### `$margin-l-atoms--states`
+
+### `$object-fit-atoms`
+### `$object-fit-atoms--breakpoints`
+### `$object-fit-atoms--states`
+
+### `$object-position-atoms`
+### `$object-position-atoms--breakpoints`
+### `$object-position-atoms--states`
+
+### `$overflow-atoms`
+### `$overflow-atoms--breakpoints`
+### `$overflow-atoms--states`
+
+### `$overflow-x-atoms`
+### `$overflow-x-atoms--breakpoints`
+### `$overflow-x-atoms--states`
+
+### `$overflow-y-atoms`
+### `$overflow-y-atoms--breakpoints`
+### `$overflow-y-atoms--states`
+
+### `$padding-atoms`
+### `$padding-atoms--breakpoints`
+### `$padding-atoms--states`
+
+### `$padding-x-atoms`
+### `$padding-x-atoms--breakpoints`
+### `$padding-x-atoms--states`
+
+### `$padding-y-atoms`
+### `$padding-y-atoms--breakpoints`
+### `$padding-y-atoms--states`
+
+### `$padding-t-atoms`
+### `$padding-t-atoms--breakpoints`
+### `$padding-t-atoms--states`
+
+### `$padding-r-atoms`
+### `$padding-r-atoms--breakpoints`
+### `$padding-r-atoms--states`
+
+### `$padding-b-atoms`
+### `$padding-b-atoms--breakpoints`
+### `$padding-b-atoms--states`
+
+### `$padding-l-atoms`
+### `$padding-l-atoms--breakpoints`
+### `$padding-l-atoms--states`
+
+### `$position-atoms`
+### `$position-atoms--breakpoints`
+### `$position-atoms--states`
+
+### `$text-align-atoms`
+### `$text-align-atoms--breakpoints`
+### `$text-align-atoms--states`
+
+### `$text-color-atoms`
+### `$text-color-atoms--breakpoints`
+### `$text-color-atoms--states`
+
+### `$text-size-atoms`
+### `$text-size-atoms--breakpoints`
+### `$text-size-atoms--states`
+
+### `$visibility-atoms`
+### `$visibility-atoms--breakpoints`
+### `$visibility-atoms--states`
+
+### `$width-atoms`
+### `$width-atoms--breakpoints`
+### `$width-atoms--states`
+
+### `$min-width-atoms`
+### `$min-width-atoms--breakpoints`
+### `$min-width-atoms--states`
+
+### `$max-width-atoms`
+### `$max-width-atoms--breakpoints`
+### `$max-width-atoms--states`

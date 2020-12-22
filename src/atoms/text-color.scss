@@ -15,12 +15,15 @@ $text-color-table: map-prefix(
 @each $key, $value in $text-color-table {
   %#{$key} { color: $value; }
   @include breakpoint-placeholders(#{$key}) { color: $value; };
-  @include pseudoclass-placeholders(#{$key}) { color: $value; };
+  @include state-placeholders(#{$key}) { color: $value; };
 }
 
 $text-color-atoms: ();
+$text-color-atoms--breakpoints: ();
+$text-color-atoms--states: ();
+
 @each $key, $value in $text-color-table {
   $text-color-atoms: append($text-color-atoms, $key);
-  $text-color-atoms: breakpoint-variants($text-color-atoms, $key);
-  $text-color-atoms: pseudoclass-variants($text-color-atoms, $key);
+  $text-color-atoms--breakpoints: breakpoint-variants($text-color-atoms--breakpoints, $key);
+  $text-color-atoms--states: state-variants($text-color-atoms--states, $key);
 }

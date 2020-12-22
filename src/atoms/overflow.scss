@@ -31,41 +31,50 @@ $overflow-y-table: map-prefix(
 @each $key, $value in $overflow-table {
   %#{$key} { overflow: $value; }
   @include breakpoint-placeholders(#{$key}) { overflow: $value; };
-  @include pseudoclass-placeholders(#{$key}) { overflow: $value; };
+  @include state-placeholders(#{$key}) { overflow: $value; };
 }
 
 $overflow-atoms: ();
+$overflow-atoms--breakpoints: ();
+$overflow-atoms--states: ();
+
 @each $key, $value in $overflow-table {
   $overflow-atoms: append($overflow-atoms, $key);
-  $overflow-atoms: breakpoint-variants($overflow-atoms, $key);
-  $overflow-atoms: pseudoclass-variants($overflow-atoms, $key);
+  $overflow-atoms--breakpoints: breakpoint-variants($overflow-atoms--breakpoints, $key);
+  $overflow-atoms--states: state-variants($overflow-atoms--states, $key);
 }
 
 
 @each $key, $value in $overflow-x-table {
   %#{$key} { overflow-x: $value; }
   @include breakpoint-placeholders(#{$key}) { overflow-x: $value; };
-  @include pseudoclass-placeholders(#{$key}) { overflow-x: $value; };
+  @include state-placeholders(#{$key}) { overflow-x: $value; };
 }
 
 $overflow-x-atoms: ();
+$overflow-x-atoms--breakpoints: ();
+$overflow-x-atoms--states: ();
+
 @each $key, $value in $overflow-x-table {
   $overflow-x-atoms: append($overflow-x-atoms, $key);
-  $overflow-x-atoms: breakpoint-variants($overflow-x-atoms, $key);
-  $overflow-x-atoms: pseudoclass-variants($overflow-x-atoms, $key);
+  $overflow-x-atoms--breakpoints: breakpoint-variants($overflow-x-atoms--breakpoints, $key);
+  $overflow-x-atoms--states: state-variants($overflow-x-atoms--states, $key);
 }
 
 
 @each $key, $value in $overflow-y-table {
   %#{$key} { overflow-y: $value; }
   @include breakpoint-placeholders(#{$key}) { overflow-y: $value; };
-  @include pseudoclass-placeholders(#{$key}) { overflow-y: $value; };
+  @include state-placeholders(#{$key}) { overflow-y: $value; };
 }
 
 $overflow-y-atoms: ();
+$overflow-y-atoms--breakpoints: ();
+$overflow-y-atoms--states: ();
+
 @each $key, $value in $overflow-y-table {
   $overflow-y-atoms: append($overflow-y-atoms, $key);
-  $overflow-y-atoms: breakpoint-variants($overflow-y-atoms, $key);
-  $overflow-y-atoms: pseudoclass-variants($overflow-y-atoms, $key);
+  $overflow-y-atoms--breakpoints: breakpoint-variants($overflow-y-atoms--breakpoints, $key);
+  $overflow-y-atoms--states: state-variants($overflow-y-atoms--states, $key);
 }
 

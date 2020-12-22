@@ -1,0 +1,28 @@
+
+@import '../utils/map.scss';
+
+$flex-shrink-prefix: 'flex-' !default;
+
+$flex-shrink-table: map-prefix(
+  (
+    'shrink-0': 0,
+    'shrink': 1,
+  ),
+  $flex-shrink-prefix
+) !default;
+
+@each $key, $value in $flex-shrink-table {
+  %#{$key} { flex-shrink: $value; }
+  @include breakpoint-placeholders(#{$key}) { flex-shrink: $value; };
+  @include state-placeholders(#{$key}) { flex-shrink: $value; };
+}
+
+$flex-shrink-atoms: ();
+$flex-shrink-atoms--breakpoints: ();
+$flex-shrink-atoms--states: ();
+
+@each $key, $value in $flex-shrink-table {
+  $flex-shrink-atoms: append($flex-shrink-atoms, $key);
+  $flex-shrink-atoms--breakpoints: breakpoint-variants($flex-shrink-atoms--breakpoints, $key);
+  $flex-shrink-atoms--states: state-variants($flex-shrink-atoms--states, $key);
+}

@@ -14,12 +14,15 @@ $visibility-table: map-prefix(
 @each $key, $value in $visibility-table {
   %#{$key} { visibility: $value; }
   @include breakpoint-placeholders(#{$key}) { visibility: $value; };
-  @include pseudoclass-placeholders(#{$key}) { visibility: $value; };
+  @include state-placeholders(#{$key}) { visibility: $value; };
 }
 
 $visibility-atoms: ();
+$visibility-atoms--breakpoints: ();
+$visibility-atoms--states: ();
+
 @each $key, $value in $visibility-table {
   $visibility-atoms: append($visibility-atoms, $key);
-  $visibility-atoms: breakpoint-variants($visibility-atoms, $key);
-  $visibility-atoms: pseudoclass-variants($visibility-atoms, $key);
+  $visibility-atoms--breakpoints: breakpoint-variants($visibility-atoms--breakpoints, $key);
+  $visibility-atoms--states: state-variants($visibility-atoms--states, $key);
 }

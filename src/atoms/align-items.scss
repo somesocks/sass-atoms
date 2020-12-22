@@ -1,0 +1,31 @@
+
+@import '../utils/map.scss';
+
+$align-items-prefix: 'align-items-' !default;
+
+$align-items-table: map-prefix(
+  (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'baseline': baseline,
+    'stretch': stretch,
+  ),
+  $align-items-prefix
+) !default;
+
+@each $key, $value in $align-items-table {
+  %#{$key} { align-items: $value; }
+  @include breakpoint-placeholders(#{$key}) { align-items: $value; };
+  @include state-placeholders(#{$key}) { align-items: $value; };
+}
+
+$align-items-atoms: ();
+$align-items-atoms--breakpoints: ();
+$align-items-atoms--states: ();
+
+@each $key, $value in $align-items-table {
+  $align-items-atoms: append($align-items-atoms, $key);
+  $align-items-atoms--breakpoints: breakpoint-variants($align-items-atoms--breakpoints, $key);
+  $align-items-atoms--states: state-variants($align-items-atoms--states, $key);
+}

@@ -17,12 +17,15 @@ $border-style-table: map-prefix(
 @each $key, $value in $border-style-table {
   %#{$key} { border-style: $value; }
   @include breakpoint-placeholders(#{$key}) { border-style: $value; };
-  @include pseudoclass-placeholders(#{$key}) { border-style: $value; };
+  @include state-placeholders(#{$key}) { border-style: $value; };
 }
 
 $border-style-atoms: ();
+$border-style-atoms--breakpoints: ();
+$border-style-atoms--states: ();
+
 @each $key, $value in $border-style-table {
   $border-style-atoms: append($border-style-atoms, $key);
-  $border-style-atoms: breakpoint-variants($border-style-atoms, $key);
-  $border-style-atoms: pseudoclass-variants($border-style-atoms, $key);
+  $border-style-atoms--breakpoints: breakpoint-variants($border-style-atoms--breakpoints, $key);
+  $border-style-atoms--states: state-variants($border-style-atoms--states, $key);
 }

@@ -17,12 +17,15 @@ $background-clip-table: map-prefix(
 @each $key, $value in $background-clip-table {
   %#{$key} { background-clip: $value; }
   @include breakpoint-placeholders(#{$key}) { background-clip: $value; };
-  @include pseudoclass-placeholders(#{$key}) { background-clip: $value; };
+  @include state-placeholders(#{$key}) { background-clip: $value; };
 }
 
 $background-clip-atoms: ();
+$background-clip-atoms--breakpoints: ();
+$background-clip-atoms--states: ();
+
 @each $key, $value in $background-clip-table {
   $background-clip-atoms: append($background-clip-atoms, $key);
-  $background-clip-atoms: breakpoint-variants($background-clip-atoms, $key);
-  $background-clip-atoms: pseudoclass-variants($background-clip-atoms, $key);
+  $background-clip-atoms--breakpoints: breakpoint-variants($background-clip-atoms--breakpoints, $key);
+  $background-clip-atoms--states: state-variants($background-clip-atoms--states, $key);
 }

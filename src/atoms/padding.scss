@@ -57,97 +57,117 @@ $padding-l-table: map-prefix(
 @each $key, $value in $padding-table {
   %#{$key} { padding: $value; }
   @include breakpoint-placeholders(#{$key}) { padding: $value; };
-  @include pseudoclass-placeholders(#{$key}) { padding: $value; };
+  @include state-placeholders(#{$key}) { padding: $value; };
 }
 
 $padding-atoms: ();
+$padding-atoms--breakpoints: ();
+$padding-atoms--states: ();
+
 @each $key, $value in $padding-table {
   $padding-atoms: append($padding-atoms, $key);
-  $padding-atoms: breakpoint-variants($padding-atoms, $key);
-  $padding-atoms: pseudoclass-variants($padding-atoms, $key);
+  $padding-atoms--breakpoints: breakpoint-variants($padding-atoms--breakpoints, $key);
+  $padding-atoms--states: state-variants($padding-atoms--states, $key);
 }
 
 
 @each $key, $value in $padding-x-table {
   %#{$key} { padding-left: $value; padding-right: $value; }
   @include breakpoint-placeholders(#{$key}) { padding-left: $value; padding-right: $value; };
-  @include pseudoclass-placeholders(#{$key}) { padding-left: $value; padding-right: $value; };
+  @include state-placeholders(#{$key}) { padding-left: $value; padding-right: $value; };
 }
 
 $padding-x-atoms: ();
+$padding-x-atoms--breakpoints: ();
+$padding-x-atoms--states: ();
+
 @each $key, $value in $padding-x-table {
   $padding-x-atoms: append($padding-x-atoms, $key);
-  $padding-x-atoms: breakpoint-variants($padding-x-atoms, $key);
-  $padding-x-atoms: pseudoclass-variants($padding-x-atoms, $key);
+  $padding-x-atoms--breakpoints: breakpoint-variants($padding-x-atoms--breakpoints, $key);
+  $padding-x-atoms--states: state-variants($padding-x-atoms--states, $key);
 }
 
 
 @each $key, $value in $padding-y-table {
   %#{$key} { padding-top: $value; padding-bottom: $value; }
   @include breakpoint-placeholders(#{$key}) { padding-top: $value; padding-bottom: $value; };
-  @include pseudoclass-placeholders(#{$key}) { padding-top: $value; padding-bottom: $value; };
+  @include state-placeholders(#{$key}) { padding-top: $value; padding-bottom: $value; };
 }
 
 $padding-y-atoms: ();
+$padding-y-atoms--breakpoints: ();
+$padding-y-atoms--states: ();
+
 @each $key, $value in $padding-y-table {
   $padding-y-atoms: append($padding-y-atoms, $key);
-  $padding-y-atoms: breakpoint-variants($padding-y-atoms, $key);
-  $padding-y-atoms: pseudoclass-variants($padding-y-atoms, $key);
+  $padding-y-atoms--breakpoints: breakpoint-variants($padding-y-atoms--breakpoints, $key);
+  $padding-y-atoms--states: state-variants($padding-y-atoms--states, $key);
 }
 
 
 @each $key, $value in $padding-t-table {
   %#{$key} { padding-top: $value; }
   @include breakpoint-placeholders(#{$key}) { padding-top: $value; };
-  @include pseudoclass-placeholders(#{$key}) { padding-top: $value; };
+  @include state-placeholders(#{$key}) { padding-top: $value; };
 }
 
 $padding-t-atoms: ();
+$padding-t-atoms--breakpoints: ();
+$padding-t-atoms--states: ();
+
 @each $key, $value in $padding-t-table {
   $padding-t-atoms: append($padding-t-atoms, $key);
-  $padding-t-atoms: breakpoint-variants($padding-t-atoms, $key);
-  $padding-t-atoms: pseudoclass-variants($padding-t-atoms, $key);
+  $padding-t-atoms--breakpoints: breakpoint-variants($padding-t-atoms--breakpoints, $key);
+  $padding-t-atoms--states: state-variants($padding-t-atoms--states, $key);
 }
 
 
 @each $key, $value in $padding-r-table {
   %#{$key} { padding-right: $value; }
   @include breakpoint-placeholders(#{$key}) { padding-right: $value; };
-  @include pseudoclass-placeholders(#{$key}) { padding-right: $value; };
+  @include state-placeholders(#{$key}) { padding-right: $value; };
 }
 
 $padding-r-atoms: ();
+$padding-r-atoms--breakpoints: ();
+$padding-r-atoms--states: ();
+
 @each $key, $value in $padding-r-table {
   $padding-r-atoms: append($padding-r-atoms, $key);
-  $padding-r-atoms: breakpoint-variants($padding-r-atoms, $key);
-  $padding-r-atoms: pseudoclass-variants($padding-r-atoms, $key);
+  $padding-r-atoms--breakpoints: breakpoint-variants($padding-r-atoms--breakpoints, $key);
+  $padding-r-atoms--states: state-variants($padding-r-atoms--states, $key);
 }
 
 
 @each $key, $value in $padding-b-table {
   %#{$key} { padding-bottom: $value; }
   @include breakpoint-placeholders(#{$key}) { padding-bottom: $value; };
-  @include pseudoclass-placeholders(#{$key}) { padding-bottom: $value; };
+  @include state-placeholders(#{$key}) { padding-bottom: $value; };
 }
 
 $padding-b-atoms: ();
+$padding-b-atoms--breakpoints: ();
+$padding-b-atoms--states: ();
+
 @each $key, $value in $padding-b-table {
   $padding-b-atoms: append($padding-b-atoms, $key);
-  $padding-b-atoms: breakpoint-variants($padding-b-atoms, $key);
-  $padding-b-atoms: pseudoclass-variants($padding-b-atoms, $key);
+  $padding-b-atoms--breakpoints: breakpoint-variants($padding-b-atoms--breakpoints, $key);
+  $padding-b-atoms--states: state-variants($padding-b-atoms--states, $key);
 }
 
 
 @each $key, $value in $padding-l-table {
   %#{$key} { padding-left: $value; }
   @include breakpoint-placeholders(#{$key}) { padding-left: $value; };
-  @include pseudoclass-placeholders(#{$key}) { padding-left: $value; };
+  @include state-placeholders(#{$key}) { padding-left: $value; };
 }
 
 $padding-l-atoms: ();
+$padding-l-atoms--breakpoints: ();
+$padding-l-atoms--states: ();
+
 @each $key, $value in $padding-l-table {
   $padding-l-atoms: append($padding-l-atoms, $key);
-  $padding-l-atoms: breakpoint-variants($padding-l-atoms, $key);
-  $padding-l-atoms: pseudoclass-variants($padding-l-atoms, $key);
+  $padding-l-atoms--breakpoints: breakpoint-variants($padding-l-atoms--breakpoints, $key);
+  $padding-l-atoms--states: state-variants($padding-l-atoms--states, $key);
 }
-

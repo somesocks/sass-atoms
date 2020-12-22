@@ -21,12 +21,15 @@ $background-position-table: map-prefix(
 @each $key, $value in $background-position-table {
   %#{$key} { background-position: $value; }
   @include breakpoint-placeholders(#{$key}) { background-position: $value; };
-  @include pseudoclass-placeholders(#{$key}) { background-position: $value; };
+  @include state-placeholders(#{$key}) { background-position: $value; };
 }
 
 $background-position-atoms: ();
+$background-position-atoms--breakpoints: ();
+$background-position-atoms--states: ();
+
 @each $key, $value in $background-position-table {
   $background-position-atoms: append($background-position-atoms, $key);
-  $background-position-atoms: breakpoint-variants($background-position-atoms, $key);
-  $background-position-atoms: pseudoclass-variants($background-position-atoms, $key);
+  $background-position-atoms--breakpoints: breakpoint-variants($background-position-atoms--breakpoints, $key);
+  $background-position-atoms--states: state-variants($background-position-atoms--states, $key);
 }

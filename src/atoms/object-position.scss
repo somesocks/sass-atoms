@@ -21,12 +21,15 @@ $object-position-table: map-prefix(
 @each $key, $value in $object-position-table {
   %#{$key} { object-position: $value; }
   @include breakpoint-placeholders(#{$key}) { object-position: $value; };
-  @include pseudoclass-placeholders(#{$key}) { object-position: $value; };
+  @include state-placeholders(#{$key}) { object-position: $value; };
 }
 
 $object-position-atoms: ();
+$object-position-atoms--breakpoints: ();
+$object-position-atoms--states: ();
+
 @each $key, $value in $object-position-table {
   $object-position-atoms: append($object-position-atoms, $key);
-  $object-position-atoms: breakpoint-variants($object-position-atoms, $key);
-  $object-position-atoms: pseudoclass-variants($object-position-atoms, $key);
+  $object-position-atoms--breakpoints: breakpoint-variants($object-position-atoms--breakpoints, $key);
+  $object-position-atoms--states: state-variants($object-position-atoms--states, $key);
 }

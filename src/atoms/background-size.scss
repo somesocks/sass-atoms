@@ -15,12 +15,15 @@ $background-size-table: map-prefix(
 @each $key, $value in $background-size-table {
   %#{$key} { background-size: $value; }
   @include breakpoint-placeholders(#{$key}) { background-size: $value; };
-  @include pseudoclass-placeholders(#{$key}) { background-size: $value; };
+  @include state-placeholders(#{$key}) { background-size: $value; };
 }
 
 $background-size-atoms: ();
+$background-size-atoms--breakpoints: ();
+$background-size-atoms--states: ();
+
 @each $key, $value in $background-size-table {
   $background-size-atoms: append($background-size-atoms, $key);
-  $background-size-atoms: breakpoint-variants($background-size-atoms, $key);
-  $background-size-atoms: pseudoclass-variants($background-size-atoms, $key);
+  $background-size-atoms--breakpoints: breakpoint-variants($background-size-atoms--breakpoints, $key);
+  $background-size-atoms--states: state-variants($background-size-atoms--states, $key);
 }

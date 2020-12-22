@@ -57,96 +57,117 @@ $margin-l-table: map-prefix(
 @each $key, $value in $margin-table {
   %#{$key} { margin: $value; }
   @include breakpoint-placeholders(#{$key}) { margin: $value; };
-  @include pseudoclass-placeholders(#{$key}) { margin: $value; };
+  @include state-placeholders(#{$key}) { margin: $value; };
 }
 
 $margin-atoms: ();
+$margin-atoms--breakpoints: ();
+$margin-atoms--states: ();
+
 @each $key, $value in $margin-table {
   $margin-atoms: append($margin-atoms, $key);
-  $margin-atoms: breakpoint-variants($margin-atoms, $key);
-  $margin-atoms: pseudoclass-variants($margin-atoms, $key);
+  $margin-atoms--breakpoints: breakpoint-variants($margin-atoms--breakpoints, $key);
+  $margin-atoms--states: state-variants($margin-atoms--states, $key);
 }
 
 
 @each $key, $value in $margin-x-table {
   %#{$key} { margin-left: $value; margin-right: $value; }
   @include breakpoint-placeholders(#{$key}) { margin-left: $value; margin-right: $value; };
-  @include pseudoclass-placeholders(#{$key}) { margin-left: $value; margin-right: $value; };
+  @include state-placeholders(#{$key}) { margin-left: $value; margin-right: $value; };
 }
 
 $margin-x-atoms: ();
+$margin-x-atoms--breakpoints: ();
+$margin-x-atoms--states: ();
+
 @each $key, $value in $margin-x-table {
   $margin-x-atoms: append($margin-x-atoms, $key);
-  $margin-x-atoms: breakpoint-variants($margin-x-atoms, $key);
-  $margin-x-atoms: pseudoclass-variants($margin-x-atoms, $key);
+  $margin-x-atoms--breakpoints: breakpoint-variants($margin-x-atoms--breakpoints, $key);
+  $margin-x-atoms--states: state-variants($margin-x-atoms--states, $key);
 }
 
 
 @each $key, $value in $margin-y-table {
   %#{$key} { margin-top: $value; margin-bottom: $value; }
   @include breakpoint-placeholders(#{$key}) { margin-top: $value; margin-bottom: $value; };
-  @include pseudoclass-placeholders(#{$key}) { margin-top: $value; margin-bottom: $value; };
+  @include state-placeholders(#{$key}) { margin-top: $value; margin-bottom: $value; };
 }
 
 $margin-y-atoms: ();
+$margin-y-atoms--breakpoints: ();
+$margin-y-atoms--states: ();
+
 @each $key, $value in $margin-y-table {
   $margin-y-atoms: append($margin-y-atoms, $key);
-  $margin-y-atoms: breakpoint-variants($margin-y-atoms, $key);
-  $margin-y-atoms: pseudoclass-variants($margin-y-atoms, $key);
+  $margin-y-atoms--breakpoints: breakpoint-variants($margin-y-atoms--breakpoints, $key);
+  $margin-y-atoms--states: state-variants($margin-y-atoms--states, $key);
 }
 
 
 @each $key, $value in $margin-t-table {
   %#{$key} { margin-top: $value; }
   @include breakpoint-placeholders(#{$key}) { margin-top: $value; };
-  @include pseudoclass-placeholders(#{$key}) { margin-top: $value; };
+  @include state-placeholders(#{$key}) { margin-top: $value; };
 }
 
 $margin-t-atoms: ();
+$margin-t-atoms--breakpoints: ();
+$margin-t-atoms--states: ();
+
 @each $key, $value in $margin-t-table {
   $margin-t-atoms: append($margin-t-atoms, $key);
-  $margin-t-atoms: breakpoint-variants($margin-t-atoms, $key);
-  $margin-t-atoms: pseudoclass-variants($margin-t-atoms, $key);
+  $margin-t-atoms--breakpoints: breakpoint-variants($margin-t-atoms--breakpoints, $key);
+  $margin-t-atoms--states: state-variants($margin-t-atoms--states, $key);
 }
 
 
 @each $key, $value in $margin-r-table {
   %#{$key} { margin-right: $value; }
   @include breakpoint-placeholders(#{$key}) { margin-right: $value; };
-  @include pseudoclass-placeholders(#{$key}) { margin-right: $value; };
+  @include state-placeholders(#{$key}) { margin-right: $value; };
 }
 
 $margin-r-atoms: ();
+$margin-r-atoms--breakpoints: ();
+$margin-r-atoms--states: ();
+
 @each $key, $value in $margin-r-table {
   $margin-r-atoms: append($margin-r-atoms, $key);
-  $margin-r-atoms: breakpoint-variants($margin-r-atoms, $key);
-  $margin-r-atoms: pseudoclass-variants($margin-r-atoms, $key);
+  $margin-r-atoms--breakpoints: breakpoint-variants($margin-r-atoms--breakpoints, $key);
+  $margin-r-atoms--states: state-variants($margin-r-atoms--states, $key);
 }
 
 
 @each $key, $value in $margin-b-table {
   %#{$key} { margin-bottom: $value; }
   @include breakpoint-placeholders(#{$key}) { margin-bottom: $value; };
-  @include pseudoclass-placeholders(#{$key}) { margin-bottom: $value; };
+  @include state-placeholders(#{$key}) { margin-bottom: $value; };
 }
 
 $margin-b-atoms: ();
+$margin-b-atoms--breakpoints: ();
+$margin-b-atoms--states: ();
+
 @each $key, $value in $margin-b-table {
   $margin-b-atoms: append($margin-b-atoms, $key);
-  $margin-b-atoms: breakpoint-variants($margin-b-atoms, $key);
-  $margin-b-atoms: pseudoclass-variants($margin-b-atoms, $key);
+  $margin-b-atoms--breakpoints: breakpoint-variants($margin-b-atoms--breakpoints, $key);
+  $margin-b-atoms--states: state-variants($margin-b-atoms--states, $key);
 }
 
 
 @each $key, $value in $margin-l-table {
   %#{$key} { margin-left: $value; }
   @include breakpoint-placeholders(#{$key}) { margin-left: $value; };
-  @include pseudoclass-placeholders(#{$key}) { margin-left: $value; };
+  @include state-placeholders(#{$key}) { margin-left: $value; };
 }
 
 $margin-l-atoms: ();
+$margin-l-atoms--breakpoints: ();
+$margin-l-atoms--states: ();
+
 @each $key, $value in $margin-l-table {
   $margin-l-atoms: append($margin-l-atoms, $key);
-  $margin-l-atoms: breakpoint-variants($margin-l-atoms, $key);
-  $margin-l-atoms: pseudoclass-variants($margin-l-atoms, $key);
+  $margin-l-atoms--breakpoints: breakpoint-variants($margin-l-atoms--breakpoints, $key);
+  $margin-l-atoms--states: state-variants($margin-l-atoms--states, $key);
 }

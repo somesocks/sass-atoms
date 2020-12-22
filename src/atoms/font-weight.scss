@@ -32,12 +32,15 @@ $font-weight-table: map-prefix(
 @each $key, $value in $font-weight-table {
   %#{$key} { font-weight: $value; }
   @include breakpoint-placeholders(#{$key}) { font-weight: $value; };
-  @include pseudoclass-placeholders(#{$key}) { font-weight: $value; };
+  @include state-placeholders(#{$key}) { font-weight: $value; };
 }
 
 $font-weight-atoms: ();
+$font-weight-atoms--breakpoints: ();
+$font-weight-atoms--states: ();
+
 @each $key, $value in $font-weight-table {
   $font-weight-atoms: append($font-weight-atoms, $key);
-  $font-weight-atoms: breakpoint-variants($font-weight-atoms, $key);
-  $font-weight-atoms: pseudoclass-variants($font-weight-atoms, $key);
+  $font-weight-atoms--breakpoints: breakpoint-variants($font-weight-atoms--breakpoints, $key);
+  $font-weight-atoms--states: state-variants($font-weight-atoms--states, $key);
 }

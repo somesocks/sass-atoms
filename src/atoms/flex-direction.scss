@@ -1,7 +1,7 @@
 
 @import '../utils/map.scss';
 
-$flex-direction-prefix: "flex-" !default;
+$flex-direction-prefix: 'flex-' !default;
 
 $flex-direction-table: map-prefix(
   (
@@ -16,12 +16,15 @@ $flex-direction-table: map-prefix(
 @each $key, $value in $flex-direction-table {
   %#{$key} { flex-direction: $value; }
   @include breakpoint-placeholders(#{$key}) { flex-direction: $value; };
-  @include pseudoclass-placeholders(#{$key}) { flex-direction: $value; };
+  @include state-placeholders(#{$key}) { flex-direction: $value; };
 }
 
 $flex-direction-atoms: ();
+$flex-direction-atoms--breakpoints: ();
+$flex-direction-atoms--states: ();
+
 @each $key, $value in $flex-direction-table {
   $flex-direction-atoms: append($flex-direction-atoms, $key);
-  $flex-direction-atoms: breakpoint-variants($flex-direction-atoms, $key);
-  $flex-direction-atoms: pseudoclass-variants($flex-direction-atoms, $key);
+  $flex-direction-atoms--breakpoints: breakpoint-variants($flex-direction-atoms--breakpoints, $key);
+  $flex-direction-atoms--states: state-variants($flex-direction-atoms--states, $key);
 }

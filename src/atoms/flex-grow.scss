@@ -1,0 +1,28 @@
+
+@import '../utils/map.scss';
+
+$flex-grow-prefix: 'flex-' !default;
+
+$flex-grow-table: map-prefix(
+  (
+    'grow-0': 0,
+    'grow': 1,
+  ),
+  $flex-grow-prefix
+) !default;
+
+@each $key, $value in $flex-grow-table {
+  %#{$key} { flex-grow: $value; }
+  @include breakpoint-placeholders(#{$key}) { flex-grow: $value; };
+  @include state-placeholders(#{$key}) { flex-grow: $value; };
+}
+
+$flex-grow-atoms: ();
+$flex-grow-atoms--breakpoints: ();
+$flex-grow-atoms--states: ();
+
+@each $key, $value in $flex-grow-table {
+  $flex-grow-atoms: append($flex-grow-atoms, $key);
+  $flex-grow-atoms--breakpoints: breakpoint-variants($flex-grow-atoms--breakpoints, $key);
+  $flex-grow-atoms--states: state-variants($flex-grow-atoms--states, $key);
+}

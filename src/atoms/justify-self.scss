@@ -1,0 +1,31 @@
+
+@import '../utils/map.scss';
+
+$justify-self-prefix: 'justify-self-' !default;
+
+$justify-self-table: map-prefix(
+  (
+    'auto': auto,
+    'start': start,
+    'end': end,
+    'center': center,
+    'stretch': stretch,
+  ),
+  $justify-self-prefix
+) !default;
+
+@each $key, $value in $justify-self-table {
+  %#{$key} { justify-self: $value; }
+  @include breakpoint-placeholders(#{$key}) { justify-self: $value; };
+  @include state-placeholders(#{$key}) { justify-self: $value; };
+}
+
+$justify-self-atoms: ();
+$justify-self-atoms--breakpoints: ();
+$justify-self-atoms--states: ();
+
+@each $key, $value in $justify-self-table {
+  $justify-self-atoms: append($justify-self-atoms, $key);
+  $justify-self-atoms--breakpoints: breakpoint-variants($justify-self-atoms--breakpoints, $key);
+  $justify-self-atoms--states: state-variants($justify-self-atoms--states, $key);
+}

@@ -30,12 +30,15 @@ $display-table: map-prefix(
 @each $key, $value in $display-table {
   %#{$key} { display: #{$value}; }
   @include breakpoint-placeholders(#{$key}) { display: #{$value}; };
-  @include pseudoclass-placeholders(#{$key}) { display: #{$value}; };
+  @include state-placeholders(#{$key}) { display: #{$value}; };
 }
 
 $display-atoms: ();
+$display-atoms--breakpoints: ();
+$display-atoms--states: ();
+
 @each $key, $value in $display-table {
   $display-atoms: append($display-atoms, $key);
-  $display-atoms: breakpoint-variants($display-atoms, $key);
-  $display-atoms: pseudoclass-variants($display-atoms, $key);
+  $display-atoms--breakpoints: breakpoint-variants($display-atoms--breakpoints, $key);
+  $display-atoms--states: state-variants($display-atoms--states, $key);
 }

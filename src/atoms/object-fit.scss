@@ -17,12 +17,15 @@ $object-fit-table: map-prefix(
 @each $key, $value in $object-fit-table {
   %#{$key} { object-fit: $value; }
   @include breakpoint-placeholders(#{$key}) { object-fit: $value; };
-  @include pseudoclass-placeholders(#{$key}) { object-fit: $value; };
+  @include state-placeholders(#{$key}) { object-fit: $value; };
 }
 
 $object-fit-atoms: ();
+$object-fit-atoms--breakpoints: ();
+$object-fit-atoms--states: ();
+
 @each $key, $value in $object-fit-table {
   $object-fit-atoms: append($object-fit-atoms, $key);
-  $object-fit-atoms: breakpoint-variants($object-fit-atoms, $key);
-  $object-fit-atoms: pseudoclass-variants($object-fit-atoms, $key);
+  $object-fit-atoms--breakpoints: breakpoint-variants($object-fit-atoms--breakpoints, $key);
+  $object-fit-atoms--states: state-variants($object-fit-atoms--states, $key);
 }

@@ -1,0 +1,29 @@
+
+@import '../utils/map.scss';
+
+$flex-wrap-prefix: 'flex-' !default;
+
+$flex-wrap-table: map-prefix(
+  (
+    'wrap': wrap,
+    'wrap-reverse': wrap-reverse,
+    'nowrap': nowrap,
+  ),
+  $flex-wrap-prefix
+) !default;
+
+@each $key, $value in $flex-wrap-table {
+  %#{$key} { flex-wrap: $value; }
+  @include breakpoint-placeholders(#{$key}) { flex-wrap: $value; };
+  @include state-placeholders(#{$key}) { flex-wrap: $value; };
+}
+
+$flex-wrap-atoms: ();
+$flex-wrap-atoms--breakpoints: ();
+$flex-wrap-atoms--states: ();
+
+@each $key, $value in $flex-wrap-table {
+  $flex-wrap-atoms: append($flex-wrap-atoms, $key);
+  $flex-wrap-atoms--breakpoints: breakpoint-variants($flex-wrap-atoms--breakpoints, $key);
+  $flex-wrap-atoms--states: state-variants($flex-wrap-atoms--states, $key);
+}

@@ -18,13 +18,15 @@ $position-table: map-prefix(
  @each $key, $value in $position-table {
   %#{$key} { position: $value; }
   @include breakpoint-placeholders(#{$key}) { position: $value; };
-  @include pseudoclass-placeholders(#{$key}) { position: $value; };
+  @include state-placeholders(#{$key}) { position: $value; };
 }
 
 $position-atoms: ();
+$position-atoms--breakpoints: ();
+$position-atoms--states: ();
+
 @each $key, $value in $position-table {
   $position-atoms: append($position-atoms, $key);
-  $position-atoms: breakpoint-variants($position-atoms, $key);
-  $position-atoms: pseudoclass-variants($position-atoms, $key);
+  $position-atoms--breakpoints: breakpoint-variants($position-atoms--breakpoints, $key);
+  $position-atoms--states: state-variants($position-atoms--states, $key);
 }
-

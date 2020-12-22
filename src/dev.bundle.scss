@@ -1,11 +1,13 @@
 
 @import './index.scss';
 
-// @debug $atoms-table;
-
 @each $options in $atoms {
   @include materialize($options);
 }
 
 @import './reset.scss';
 
+// @each $key, $val in $atoms-table {
+//   @debug $key;
+//   @debug $val;
+// }

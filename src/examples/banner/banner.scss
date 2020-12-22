@@ -1,4 +1,4 @@
-@import '../index.scss';
+@import '../../index.scss';
 
 
 .banner {
@@ -83,9 +83,7 @@
 // use the `materialize` mixin to generate real classes from placeholders
 // the second argument is a selector to prefix to the class, to add specificity
 @include materialize($background-color-atoms, '.banner');
+@include materialize($text-color-atoms, '.banner');
+@include materialize($border-radius-atoms, '.banner');
 
-
-// @include materialize($text-color-atoms, '.banner');
-// @include materialize($background-color-atoms, '.banner');
-// @include materialize($border-radius-atoms, '.banner');
 

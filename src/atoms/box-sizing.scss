@@ -14,12 +14,16 @@ $box-sizing-table: map-prefix(
 @each $key, $value in $box-sizing-table {
   %#{$key} { box-sizing: #{$value}; }
   @include breakpoint-placeholders(#{$key}) { box-sizing: #{$value}; };
-  @include pseudoclass-placeholders(#{$key}) { box-sizing: #{$value}; };
+  @include state-placeholders(#{$key}) { box-sizing: #{$value}; };
 }
 
 $box-sizing-atoms: ();
+$box-sizing-atoms--breakpoints: ();
+$box-sizing-atoms--states: ();
+
+
 @each $key, $value in $box-sizing-table {
   $box-sizing-atoms: append($box-sizing-atoms, $key);
-  $box-sizing-atoms: breakpoint-variants($box-sizing-atoms, $key);
-  $box-sizing-atoms: pseudoclass-variants($box-sizing-atoms, $key);
+  $box-sizing-atoms--breakpoints: breakpoint-variants($box-sizing-atoms--breakpoints, $key);
+  $box-sizing-atoms--states: state-variants($box-sizing-atoms--states, $key);
 }

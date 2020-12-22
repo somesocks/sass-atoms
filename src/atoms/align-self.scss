@@ -1,0 +1,31 @@
+
+@import '../utils/map.scss';
+
+$align-self-prefix: 'align-self-' !default;
+
+$align-self-table: map-prefix(
+  (
+    'auto': auto,
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'stretch': stretch,
+  ),
+  $align-self-prefix
+) !default;
+
+@each $key, $value in $align-self-table {
+  %#{$key} { align-self: $value; }
+  @include breakpoint-placeholders(#{$key}) { align-self: $value; };
+  @include state-placeholders(#{$key}) { align-self: $value; };
+}
+
+$align-self-atoms: ();
+$align-self-atoms--breakpoints: ();
+$align-self-atoms--states: ();
+
+@each $key, $value in $align-self-table {
+  $align-self-atoms: append($align-self-atoms, $key);
+  $align-self-atoms--breakpoints: breakpoint-variants($align-self-atoms--breakpoints, $key);
+  $align-self-atoms--states: state-variants($align-self-atoms--states, $key);
+}

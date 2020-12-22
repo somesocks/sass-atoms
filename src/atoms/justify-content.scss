@@ -1,0 +1,32 @@
+
+@import '../utils/map.scss';
+
+$justify-content-prefix: 'justify-' !default;
+
+$justify-content-table: map-prefix(
+  (
+    'start': flex-start,
+    'end': flex-end,
+    'center': center,
+    'between': space-between,
+    'around': space-around,
+    'evenly': space-evenly,
+  ),
+  $justify-content-prefix
+) !default;
+
+@each $key, $value in $justify-content-table {
+  %#{$key} { justify-content: $value; }
+  @include breakpoint-placeholders(#{$key}) { justify-content: $value; };
+  @include state-placeholders(#{$key}) { justify-content: $value; };
+}
+
+$justify-content-atoms: ();
+$justify-content-atoms--breakpoints: ();
+$justify-content-atoms--states: ();
+
+@each $key, $value in $justify-content-table {
+  $justify-content-atoms: append($justify-content-atoms, $key);
+  $justify-content-atoms--breakpoints: breakpoint-variants($justify-content-atoms--breakpoints, $key);
+  $justify-content-atoms--states: state-variants($justify-content-atoms--states, $key);
+}

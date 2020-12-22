@@ -1,6 +1,6 @@
 
 @import './breakpoints.scss';
-@import './pseudoclasses.scss';
+@import './states.scss';
 
 @mixin copy() {
   @content;

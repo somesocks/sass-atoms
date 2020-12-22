@@ -1,0 +1,24 @@
+
+$state-table: (
+  'active': active,
+  'hover': hover,
+  'focus': focus,
+  'disabled': disabled,
+  'enabled': enabled, 
+  
+  ) !default;
+
+@function state-variants($list, $classname) {
+  @each $key, $value in $state-table {
+    $list: append($list, #{$classname}--#{$key})
+  }
+  @return $list
+} 
+
+@mixin state-placeholders($classname) {
+  @each $key, $value in $state-table {
+    %#{$classname}--#{$key}:#{$value} {
+      @content;
+    }    
+  }
+}
