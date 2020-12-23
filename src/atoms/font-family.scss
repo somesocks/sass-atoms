@@ -14,9 +14,9 @@ $font-family-table: map-prefix(
 
 
 @each $key, $value in $font-family-table {
-  %#{$key} { font-family: $value; }
-  @include breakpoint-placeholders(#{$key}) { font-family: $value; };
-  @include state-placeholders(#{$key}) { font-family: $value; };
+  %#{$key} { font-family: #{$value}; }
+  @include breakpoint-placeholders(#{$key}) { font-family: #{$value}; };
+  @include state-placeholders(#{$key}) { font-family: #{$value}; };
 }
 
 $font-family-atoms: ();

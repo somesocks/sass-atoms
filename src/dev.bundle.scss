@@ -1,12 +1,2 @@
 
-@import './index.scss';
-
-@each $options in $atoms {
-  @include materialize($options);
-}
-
-@import './reset.scss';
-
-// @each $val in $atoms {
-//   @debug $val;
-// }
+@import './dev.scss';
