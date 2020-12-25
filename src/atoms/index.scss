@@ -11,6 +11,7 @@
 @import './border-radius.scss';
 @import './border-style.scss';
 @import './border-width.scss';
+@import './box-shadow.scss';
 @import './box-sizing.scss';
 @import './clear.scss';
 @import './colors.scss';
@@ -90,6 +91,10 @@ $atoms: (
   $border-width-atoms,
   $border-width-atoms--breakpoints,
   $border-width-atoms--states,
+
+  $box-shadow-atoms,
+  $box-shadow-atoms--breakpoints,
+  $box-shadow-atoms--states,
 
   $box-sizing-atoms,
   $box-sizing-atoms--breakpoints,
