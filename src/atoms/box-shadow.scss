@@ -16,9 +16,9 @@ $box-shadow-table: map-prefix(
 ) !default;
 
 @each $key, $value in $box-shadow-table {
-  %#{$key} { box-shadow: $value; }
-  @include breakpoint-placeholders(#{$key}) { box-shadow: $value; };
-  @include state-placeholders(#{$key}) { box-shadow: $value; };
+  %#{$key} { box-shadow: #{$value}; }
+  @include breakpoint-placeholders(#{$key}) { box-shadow: #{$value}; };
+  @include state-placeholders(#{$key}) { box-shadow: #{$value}; };
 }
 
 $box-shadow-atoms: ();
