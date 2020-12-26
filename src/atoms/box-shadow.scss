@@ -6,11 +6,9 @@ $box-shadow-prefix: 'shadow-' !default;
 $box-shadow-table: map-prefix(
   (
     'none': 'none',
-    'xs': '0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24)',
-    'sm': '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
-    'md': '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
-    'lg': '0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)',
-    'xl': ' 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)',
+    'sm': '0 1px 3px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.22)',
+    'md': '0 3px 6px rgba(0,0,0,0.14), 0 3px 6px rgba(0,0,0,0.14)',
+    'lg': '0 8px 12px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.12)',
   ),
   $box-shadow-prefix
 ) !default;
@@ -30,3 +28,60 @@ $box-shadow-atoms--states: ();
   $box-shadow-atoms--breakpoints: breakpoint-variants($box-shadow-atoms--breakpoints, $key);
   $box-shadow-atoms--states: state-variants($box-shadow-atoms--states, $key);
 }
+
+// body {
+//   background: #e2e1e0;
+//   text-align: center;
+// }
+
+// .card {
+//   background: #fff;
+//   border-radius: 2px;
+//   display: inline-block;
+//   height: 300px;
+//   margin: 1rem;
+//   position: relative;
+//   width: 300px;
+// }
+
+// .card-1 {
+//   box-shadow: 0 1px 3px rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.18);
+//   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+// }
+
+// .card-1:hover {
+// /*   box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 10px 10px rgba(0,0,0,0.1); */
+//   box-shadow: 0 3px 6px rgba(0,0,0,0.14), 0 3px 6px rgba(0,0,0,0.14);
+// }
+
+// .card-2 {
+//   box-shadow: 0 3px 6px rgba(0,0,0,0.14), 0 3px 6px rgba(0,0,0,0.14);
+//   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+// }
+
+// .card-2:hover {
+//   box-shadow: 0 10px 20px rgba(0,0,0,0.12), 0 6px 6px rgba(0,0,0,0.12);
+// }
+
+// .card-3 {
+//   box-shadow: 0 10px 20px rgba(0,0,0,0.12), 0 6px 6px rgba(0,0,0,0.12);
+//   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+// }
+
+// .card-3:hover {
+//   box-shadow: 0 16px 32px rgba(0,0,0,0.10), 0 12px 12px rgba(0,0,0,0.10);
+// }
+
+// .card-4 {
+//   box-shadow: 0 16px 32px rgba(0,0,0,0.10), 0 12px 12px rgba(0,0,0,0.10);
+//   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+// }
+
+// .card-4:hover {
+//   box-shadow: 0 19px 38px rgba(0,0,0,0.09), 0 15px 12px rgba(0,0,0,0.09);
+// }
+
+// .card-5 {
+//   box-shadow: 0 19px 38px rgba(0,0,0,0.09), 0 15px 12px rgba(0,0,0,0.09);
+//   transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+// }
